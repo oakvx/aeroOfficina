@@ -1,968 +1,1920 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IronWing MRO — Officina Aeronautica</title>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg:    #080808;
-  --bg2:   #0e0e0e;
-  --bg3:   #141414;
-  --line:  rgba(255,255,255,0.06);
-  --line2: rgba(255,255,255,0.12);
-  --w:     #F0ECE4;
-  --dim:   #7A7068;
-  --mid:   #AAA09A;
-  --red:   #C41A0E;
-  --rdbr:  #FF2A1A;
-  --disp:  'Black Han Sans', sans-serif;
-  --head:  'Oswald', sans-serif;
-  --mono:  'Share Tech Mono', monospace;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Garage — Officina ULM & Motori Rotax</title>
+    <!-- ═══ SEO BASE ═══ -->
+    <meta name="description" content="Snake Garage è l'officina specializzata in aeromobili ultraleggeri (ULM) e motori Rotax serie 912, 914, 915 a Reggio Emilia. Meccanico IRMT certificato. Manutenzione, revisione e assistenza per piloti privati e scuole di volo. Operativi 24h/365gg.">
+    <meta name="keywords" content="officina ULM Reggio Emilia, manutenzione Rotax 912, revisione motore Rotax, ultraleggero manutenzione, meccanico aeronautico Emilia, Rotax 914, Rotax 915, manutenzione aeromobili, scuola di volo manutenzione, Snake Garage">
+    <meta name="author" content="Snake Garage">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.snakegarage.it/">
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--w);
-  font-family:var(--head);
-  overflow-x:hidden;
-}
+    <!-- ═══ GEO / LOCAL SEO ═══ -->
+    <meta name="geo.region" content="IT-RE">
+    <meta name="geo.placename" content="Reggio nell'Emilia">
+    <meta name="geo.position" content="44.6980;10.6308">
+    <meta name="ICBM" content="44.6980, 10.6308">
 
-/* noise overlay */
-body::before{
-  content:'';
-  position:fixed;inset:0;z-index:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  background-size:180px;
-  opacity:0.028;
-  pointer-events:none;
-}
+    <!-- ═══ OPEN GRAPH (Facebook / LinkedIn) ═══ -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:site_name" content="Snake Garage">
+    <meta property="og:title" content="Snake Garage — Officina ULM &amp; Motori Rotax | Reggio Emilia">
+    <meta property="og:description" content="Officina specializzata in aeromobili ultraleggeri e motori Rotax (912 / 914 / 915) a Reggio Emilia. Meccanico IRMT certificato. Manutenzione, revisione e assistenza H24.">
+    <meta property="og:url" content="https://www.snakegarage.it/">
+    <meta property="og:image" content="https://www.snakegarage.it/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Snake Garage — Officina ULM e Motori Rotax a Reggio Emilia">
+    <meta property="og:locale" content="it_IT">
+    <meta property="business:contact_data:street_address" content="Via Enrico Fermi 21">
+    <meta property="business:contact_data:locality" content="Reggio nell'Emilia">
+    <meta property="business:contact_data:postal_code" content="42123">
+    <meta property="business:contact_data:country_name" content="Italia">
+    <meta property="business:contact_data:phone_number" content="+393669907230">
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:64px;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0 56px;
-  background:rgba(8,8,8,0.94);
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(16px);
-}
-.nlogo{
-  font-family:var(--disp);
-  font-size:1.5rem;
-  letter-spacing:0.08em;
-  color:var(--w);
-  line-height:1;
-}
-.nlogo em{color:var(--red);font-style:normal;}
-.nlinks{display:flex;gap:36px;list-style:none;}
-.nlinks a{
-  font-family:var(--mono);
-  font-size:0.65rem;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:var(--dim);
-  text-decoration:none;
-  transition:color .15s;
-}
-.nlinks a:hover{color:var(--w);}
-.ncta{
-  font-family:var(--mono);
-  font-size:0.65rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:#080808;
-  background:var(--red);
-  border:none;
-  padding:0 22px;height:38px;
-  cursor:pointer;
-  transition:background .15s;
-  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
-}
-.ncta:hover{background:var(--rdbr);}
+    <!-- ═══ TWITTER / X CARD ═══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Snake Garage — Officina ULM &amp; Motori Rotax | Reggio Emilia">
+    <meta name="twitter:description" content="Officina specializzata in aeromobili ULM e motori Rotax a Reggio Emilia. Meccanico IRMT certificato. Assistenza H24.">
+    <meta name="twitter:image" content="https://www.snakegarage.it/og-image.jpg">
+    <meta name="twitter:image:alt" content="Snake Garage — Officina ULM e Motori Rotax a Reggio Emilia">
 
-/* ── HERO ── */
-#hero{
-  position:relative;
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:1fr 480px;
-  align-items:end;
-  padding:0 56px 80px;
-  overflow:hidden;
-}
-.h-bg{
-  position:absolute;inset:0;
-  background:
-    url('https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=1800&q=80')
-    center/cover no-repeat;
-  opacity:.18;
-  transform:scale(1.04);
-  animation:hbgzoom 18s ease-in-out infinite alternate;
-}
-@keyframes hbgzoom{from{transform:scale(1.04);}to{transform:scale(1.0);}}
-.h-vig{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to right, rgba(8,8,8,.98) 38%, rgba(8,8,8,.55) 70%, rgba(8,8,8,.85) 100%),
-    linear-gradient(to top, rgba(8,8,8,.9) 0%, transparent 40%);
-}
+    <!-- ═══ SCHEMA.ORG — LocalBusiness (JSON-LD) ═══ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "AutoRepair",
+            "name": "Snake Garage",
+            "description": "Officina specializzata in aeromobili ultraleggeri (ULM) e motori Rotax serie 912, 914, 915. Meccanico IRMT certificato. Manutenzione, revisione e assistenza per piloti privati e scuole di volo.",
+            "url": "https://www.snakegarage.it/",
+            "telephone": "+393669907230",
+            "email": "info@snakegarage.it",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Via Enrico Fermi 21",
+                "addressLocality": "Reggio nell'Emilia",
+                "postalCode": "42123",
+                "addressRegion": "RE",
+                "addressCountry": "IT"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 44.6980,
+                "longitude": 10.6308
+            },
+            "openingHours": "Mo-Su 00:00-23:59",
+            "priceRange": "€€",
+            "currenciesAccepted": "EUR",
+            "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 44.6980,
+                    "longitude": 10.6308
+                },
+                "geoRadius": "200000"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servizi officina ULM",
+                "itemListElement": [{
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Manutenzione motori Rotax 912 / 914 / 915"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Revisione aeromobili ultraleggeri ULM"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Assistenza tecnica per scuole di volo"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Ispezione e collaudo velivoli ULM"
+                        }
+                    }
+                ]
+            },
+            "sameAs": []
+        }
+    </script>
 
-/* red accent line left */
-.h-redline{
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:4px;
-  background:linear-gradient(to bottom, transparent 0%, var(--red) 30%, var(--red) 70%, transparent 100%);
-}
+    <!-- ═══ BREADCRUMB SCHEMA ═══ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.snakegarage.it/"
+            }]
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080808;
+            --bg2: #0e0e0e;
+            --bg3: #141414;
+            --line: rgba(255, 255, 255, 0.06);
+            --line2: rgba(255, 255, 255, 0.12);
+            --w: #F0ECE4;
+            --dim: #7A7068;
+            --mid: #AAA09A;
+            --red: #C41A0E;
+            --rdbr: #FF2A1A;
+            --disp: 'Black Han Sans', sans-serif;
+            --head: 'Oswald', sans-serif;
+            --mono: 'Share Tech Mono', monospace;
+        }
 
-.h-left{position:relative;z-index:2;}
-.h-chip{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--mono);
-  font-size:0.62rem;
-  letter-spacing:0.26em;
-  text-transform:uppercase;
-  color:var(--red);
-  border:1px solid rgba(196,26,14,0.4);
-  padding:6px 14px 6px 10px;
-  margin-bottom:36px;
-  opacity:0;animation:up .6s .2s forwards;
-}
-.h-chip::before{content:'▶';font-size:0.45rem;margin-right:2px;}
-.h-title{
-  font-family:var(--disp);
-  font-size:clamp(72px,10vw,136px);
-  line-height:.88;
-  color:var(--w);
-  letter-spacing:-0.01em;
-  opacity:0;animation:up .7s .35s forwards;
-}
-.h-title .accent{
-  color:transparent;
-  -webkit-text-stroke:2px var(--red);
-  display:block;
-}
-.h-rule{
-  width:80px;height:3px;
-  background:var(--red);
-  margin:36px 0;
-  opacity:0;animation:up .6s .55s forwards;
-}
-.h-sub{
-  font-family:var(--head);
-  font-size:1.05rem;
-  font-weight:400;
-  color:var(--mid);
-  max-width:480px;
-  line-height:1.7;
-  letter-spacing:0.02em;
-  opacity:0;animation:up .6s .7s forwards;
-}
-.h-btns{
-  display:flex;gap:12px;
-  margin-top:44px;
-  opacity:0;animation:up .6s .85s forwards;
-}
-.btn-solid{
-  font-family:var(--mono);
-  font-size:0.68rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:#080808;
-  background:var(--red);
-  padding:15px 36px;
-  text-decoration:none;
-  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
-  transition:background .15s;
-}
-.btn-solid:hover{background:var(--rdbr);}
-.btn-wire{
-  font-family:var(--mono);
-  font-size:0.68rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--dim);
-  border:1px solid rgba(255,255,255,0.1);
-  padding:15px 36px;
-  text-decoration:none;
-  transition:color .15s,border-color .15s;
-}
-.btn-wire:hover{color:var(--w);border-color:rgba(255,255,255,0.3);}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* hero right stats */
-.h-right{
-  position:relative;z-index:2;
-  border-left:1px solid var(--line2);
-  padding-left:48px;
-  opacity:0;animation:fadein .8s 1s forwards;
-}
-.hstat{
-  padding:28px 0;
-  border-bottom:1px solid var(--line);
-}
-.hstat:first-child{border-top:1px solid var(--line);}
-.hstat-n{
-  font-family:var(--disp);
-  font-size:3.8rem;
-  color:var(--w);
-  line-height:.9;
-}
-.hstat-n sup{
-  font-family:var(--head);
-  font-size:1.2rem;
-  color:var(--red);
-  vertical-align:super;
-  font-weight:700;
-}
-.hstat-l{
-  font-family:var(--mono);
-  font-size:0.58rem;
-  letter-spacing:0.22em;
-  text-transform:uppercase;
-  color:var(--dim);
-  margin-top:6px;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
-@keyframes fadein{to{opacity:1;}}
+        body {
+            background: var(--bg);
+            color: var(--w);
+            font-family: var(--head);
+            overflow-x: hidden;
+        }
 
-/* ── BAND ── */
-.band{
-  background:var(--red);
-  padding:16px 56px;
-  display:flex;
-  gap:0;
-  overflow:hidden;
-}
-.band-inner{
-  display:flex;gap:56px;
-  white-space:nowrap;
-  animation:scroll 20s linear infinite;
-  flex-shrink:0;
-}
-.band-inner span{
-  font-family:var(--mono);
-  font-size:0.62rem;
-  letter-spacing:0.28em;
-  text-transform:uppercase;
-  color:#080808;
-  font-weight:500;
-}
-.band-sep{color:rgba(8,8,8,.4)!important;}
-@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 180px;
+            opacity: 0.028;
+            pointer-events: none;
+        }
 
-/* ── SECTION SHELL ── */
-.s{padding:100px 56px;}
-.s2{background:var(--bg2);}
-.lbl{
-  font-family:var(--mono);
-  font-size:0.6rem;
-  letter-spacing:0.3em;
-  text-transform:uppercase;
-  color:var(--red);
-  margin-bottom:14px;
-  display:flex;align-items:center;gap:10px;
-}
-.lbl::before{content:'';display:block;width:28px;height:2px;background:var(--red);}
-.sh{
-  font-family:var(--disp);
-  font-size:clamp(44px,6.5vw,88px);
-  line-height:.9;
-  color:var(--w);
-  letter-spacing:0.01em;
-}
-.sh .dim{
-  color:transparent;
-  -webkit-text-stroke:1.5px rgba(255,255,255,0.15);
-}
-body p.lead{
-  font-family:var(--head);
-  font-size:.96rem;
-  font-weight:400;
-  color:var(--mid);
-  line-height:1.8;
-  letter-spacing:.02em;
-}
+        /* ═══════════════════════════════════
+   MODALS
+═══════════════════════════════════ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+            padding: 80px 20px 60px;
+            align-items: flex-start;
+            justify-content: center;
+        }
 
-/* ── SERVICES ── */
-.svc-head{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:60px;align-items:end;margin-bottom:0;
-}
-.svc-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  border-top:2px solid var(--red);
-  margin-top:56px;
-}
-.svc{
-  padding:44px 36px 40px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  position:relative;
-  overflow:hidden;
-  transition:background .2s;
-}
-.svc:nth-child(3n){border-right:none;}
-.svc:hover{background:rgba(196,26,14,.05);}
-.svc-hover-bar{
-  position:absolute;bottom:0;left:0;width:0;height:2px;
-  background:var(--red);
-  transition:width .35s;
-}
-.svc:hover .svc-hover-bar{width:100%;}
-.svc-idx{
-  font-family:var(--mono);
-  font-size:0.58rem;
-  letter-spacing:0.24em;
-  color:var(--dim);
-  margin-bottom:24px;
-}
-.svc-name{
-  font-family:var(--disp);
-  font-size:1.55rem;
-  color:var(--w);
-  line-height:1.05;
-  margin-bottom:16px;
-}
-.svc-desc{
-  font-family:var(--head);
-  font-size:0.86rem;
-  font-weight:400;
-  color:var(--dim);
-  line-height:1.75;
-}
+        .modal-overlay.open {
+            display: flex;
+        }
 
-/* ── ABOUT ── */
-#about{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:0;padding:0;
-}
-.ab-img{
-  position:relative;min-height:680px;overflow:hidden;
-}
-.ab-img img{
-  width:100%;height:100%;object-fit:cover;
-  display:block;
-  filter:grayscale(40%) contrast(1.1) brightness(.7);
-  transition:transform 8s ease;
-}
-#about:hover .ab-img img{transform:scale(1.04);}
-/* red overlay stripe */
-.ab-img::after{
-  content:'';
-  position:absolute;left:0;top:0;bottom:0;width:6px;
-  background:var(--red);
-}
-.ab-copy{
-  padding:80px 64px;
-  border-left:1px solid var(--line);
-  display:flex;flex-direction:column;justify-content:center;
-  background:var(--bg2);
-}
-.ab-copy p{
-  font-family:var(--head);
-  font-size:.94rem;font-weight:400;
-  color:var(--dim);line-height:1.85;
-  margin-top:24px;
-}
-.ab-copy strong{color:var(--w);font-weight:600;}
-.certs{
-  display:flex;flex-wrap:wrap;gap:8px;
-  margin-top:36px;
-}
-.cert{
-  font-family:var(--mono);
-  font-size:.58rem;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--dim);
-  border:1px solid var(--line2);
-  padding:7px 14px;
-  clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
-  transition:color .2s,border-color .2s;
-}
-.cert:hover{color:var(--w);border-color:rgba(255,255,255,.25);}
+        .modal-box {
+            background: var(--bg2);
+            border: 1px solid var(--line2);
+            border-top: 3px solid var(--red);
+            max-width: 680px;
+            width: 100%;
+            padding: 52px 56px;
+            position: relative;
+            animation: mup .25s ease;
+        }
 
-/* ── FLEET ── */
-.fleet-head{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:60px;align-items:end;margin-bottom:56px;
-}
-.fleet-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:2px solid var(--red);
-}
-.fcard{
-  padding:40px 32px;
-  border-right:1px solid var(--line);
-  transition:background .2s;
-  position:relative;
-}
-.fcard:last-child{border-right:none;}
-.fcard:hover{background:rgba(196,26,14,.05);}
-.fcard::before{
-  content:attr(data-n);
-  position:absolute;top:16px;right:20px;
-  font-family:var(--disp);
-  font-size:4rem;
-  color:rgba(255,255,255,.03);
-  line-height:1;
-}
-.fcat{
-  font-family:var(--mono);
-  font-size:.58rem;letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--red);margin-bottom:12px;
-}
-.fname{
-  font-family:var(--disp);
-  font-size:1.4rem;
-  color:var(--w);
-  margin-bottom:12px;line-height:1.1;
-}
-.fmodels{
-  font-family:var(--head);
-  font-size:.82rem;font-weight:400;
-  color:var(--dim);line-height:1.65;
-}
+        @keyframes mup {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
 
-/* ── PROCESS ── */
-.proc-intro{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:60px;align-items:end;margin-bottom:60px;
-}
-.proc-list{border-top:1px solid var(--line2);}
-.proc-row{
-  display:grid;grid-template-columns:96px 1fr;
-  gap:0;
-  align-items:stretch;
-  border-bottom:1px solid var(--line);
-  transition:background .2s;
-}
-.proc-row:hover{background:rgba(255,255,255,.02);}
-.proc-n{
-  font-family:var(--disp);
-  font-size:2.2rem;
-  color:var(--red);
-  padding:36px 0 36px 0;
-  border-right:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  letter-spacing:.04em;
-}
-.proc-body{padding:36px 40px;}
-.proc-title{
-  font-family:var(--disp);
-  font-size:1.4rem;
-  color:var(--w);
-  letter-spacing:.04em;
-  margin-bottom:10px;
-}
-.proc-desc{
-  font-family:var(--head);
-  font-size:.86rem;font-weight:400;
-  color:var(--dim);line-height:1.75;
-  max-width:600px;
-}
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
 
-/* ── QUOTES ── */
-#quotes{background:var(--bg3);}
-.q-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  border-top:2px solid var(--red);
-  margin-top:56px;
-}
-.qcard{
-  padding:48px 40px;
-  border-right:1px solid var(--line);
-  transition:background .2s;
-}
-.qcard:last-child{border-right:none;}
-.qcard:hover{background:rgba(196,26,14,.04);}
-.qmark{
-  font-family:var(--disp);
-  font-size:5rem;
-  color:var(--red);
-  line-height:.7;
-  margin-bottom:20px;
-  opacity:.8;
-}
-.qtext{
-  font-family:var(--head);
-  font-size:.9rem;font-weight:400;
-  color:var(--mid);
-  line-height:1.8;font-style:italic;
-  margin-bottom:32px;
-}
-.qline{width:36px;height:2px;background:var(--red);margin-bottom:18px;}
-.qwho{
-  font-family:var(--mono);
-  font-size:.62rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--w);
-}
-.qrole{
-  font-family:var(--mono);
-  font-size:.58rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--dim);
-  margin-top:4px;
-}
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            background: none;
+            border: 1px solid var(--line2);
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .2em;
+            color: var(--dim);
+            cursor: pointer;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            transition: color .15s, border-color .15s;
+        }
 
-/* ── CONTACT ── */
-#contact{
-  padding:0;
-  display:grid;grid-template-columns:1fr 1fr;
-}
-.ct-left{
-  padding:80px 56px;
-  background:var(--bg2);
-  border-right:1px solid var(--line);
-}
-.ct-left p{
-  font-family:var(--head);
-  font-size:.94rem;font-weight:400;
-  color:var(--dim);line-height:1.8;
-  max-width:380px;margin-top:24px;
-}
-.ct-meta{margin-top:48px;}
-.ct-row{
-  padding:20px 0;
-  border-bottom:1px solid var(--line);
-}
-.ct-row:first-child{border-top:1px solid var(--line);}
-.ct-lbl{
-  font-family:var(--mono);
-  font-size:.58rem;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--red);
-  margin-bottom:6px;
-}
-.ct-val{
-  font-family:var(--head);
-  font-size:.9rem;font-weight:400;
-  color:var(--w);line-height:1.6;
-}
-.ct-right{padding:80px 56px;background:var(--bg);}
-.fl{
-  display:block;
-  font-family:var(--mono);
-  font-size:.58rem;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--dim);
-  margin-bottom:8px;
-}
-.fi, .fta{
-  width:100%;
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--line);
-  border-left:2px solid transparent;
-  padding:13px 16px;
-  color:var(--w);
-  font-family:var(--head);
-  font-size:.9rem;font-weight:400;
-  outline:none;
-  margin-bottom:22px;
-  transition:border-color .2s,background .2s;
-}
-.fi:focus, .fta:focus{
-  border-color:rgba(255,255,255,.12);
-  border-left-color:var(--red);
-  background:rgba(255,255,255,.05);
-}
-.fta{resize:vertical;min-height:110px;}
-.fsub{
-  width:100%;
-  font-family:var(--mono);
-  font-size:.68rem;letter-spacing:.2em;
-  text-transform:uppercase;
-  color:#080808;
-  background:var(--red);
-  border:none;
-  padding:17px;
-  cursor:pointer;
-  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
-  transition:background .15s;
-}
-.fsub:hover{background:var(--rdbr);}
+        .modal-close:hover {
+            color: var(--w);
+            border-color: rgba(255, 255, 255, .25);
+        }
 
-/* ── FOOTER ── */
-footer{
-  background:#050505;
-  border-top:1px solid var(--line);
-  padding:28px 56px;
-  display:flex;justify-content:space-between;align-items:center;
-}
-.flogo{
-  font-family:var(--disp);
-  font-size:1.1rem;letter-spacing:.08em;color:var(--w);
-}
-.flogo em{color:var(--red);font-style:normal;}
-.fcopy{
-  font-family:var(--mono);
-  font-size:.56rem;letter-spacing:.14em;
-  color:var(--dim);text-align:center;line-height:1.8;
-}
-.fnav{display:flex;gap:24px;}
-.fnav a{
-  font-family:var(--mono);
-  font-size:.58rem;letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--dim);text-decoration:none;
-  transition:color .15s;
-}
-.fnav a:hover{color:var(--w);}
+        .modal-lbl {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-/* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s;}
-.rv.in{opacity:1;transform:none;}
+        .modal-lbl::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--red);
+        }
 
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  nav{padding:0 20px;}
-  .nlinks{display:none;}
-  .s,.s2{padding:64px 20px;}
-  #hero{grid-template-columns:1fr;padding:0 20px 60px;}
-  .h-right{display:none;}
-  .svc-head,.fleet-head,.proc-intro{grid-template-columns:1fr;gap:24px;}
-  .svc-grid{grid-template-columns:1fr;}
-  .svc{border-right:none;}
-  #about{grid-template-columns:1fr;}
-  .ab-img{min-height:280px;}
-  .ab-copy{padding:48px 20px;border-left:none;border-top:1px solid var(--line);}
-  .fleet-grid{grid-template-columns:1fr 1fr;}
-  .fcard:nth-child(2){border-right:none;}
-  .q-grid{grid-template-columns:1fr;}
-  .qcard{border-right:none;}
-  #contact{grid-template-columns:1fr;}
-  .ct-left,.ct-right{padding:48px 20px;}
-  footer{flex-direction:column;gap:16px;padding:20px;text-align:center;}
-}
-</style>
+        .modal-title {
+            font-family: var(--disp);
+            font-size: clamp(30px, 5vw, 54px);
+            color: var(--w);
+            line-height: .9;
+            margin-bottom: 24px;
+        }
+
+        .modal-rule {
+            width: 40px;
+            height: 2px;
+            background: var(--red);
+            margin-bottom: 28px;
+        }
+
+        .modal-body {
+            font-family: var(--head);
+            font-size: .88rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.85;
+        }
+
+        .modal-body h3 {
+            font-family: var(--disp);
+            font-size: 1rem;
+            color: var(--w);
+            margin: 26px 0 8px;
+            letter-spacing: .06em;
+        }
+
+        .modal-body p {
+            margin-bottom: 12px;
+        }
+
+        .modal-body ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .modal-body li {
+            margin-bottom: 5px;
+        }
+
+        .modal-body strong {
+            color: var(--mid);
+            font-weight: 600;
+        }
+
+        .modal-body a {
+            color: var(--red);
+            text-decoration: none;
+        }
+
+        .modal-body a:hover {
+            color: var(--rdbr);
+            text-decoration: underline;
+        }
+
+        /* ═══════════════════════════════════
+   COOKIE BANNER
+═══════════════════════════════════ */
+        .cookie-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 500;
+            background: rgba(12, 12, 12, 0.97);
+            border-top: 1px solid var(--line2);
+            padding: 18px 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            backdrop-filter: blur(10px);
+            transition: transform .4s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .cookie-bar.hidden {
+            transform: translateY(110%);
+        }
+
+        .cookie-text {
+            font-family: var(--head);
+            font-size: .82rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.6;
+            max-width: 620px;
+        }
+
+        .cookie-text a {
+            color: var(--red);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cookie-text a:hover {
+            color: var(--rdbr);
+        }
+
+        .cookie-btns {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .cbtn-a {
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: #080808;
+            background: var(--red);
+            border: none;
+            padding: 11px 24px;
+            cursor: pointer;
+            clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+            transition: background .15s;
+        }
+
+        .cbtn-a:hover {
+            background: var(--rdbr);
+        }
+
+        .cbtn-d {
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--dim);
+            background: none;
+            border: 1px solid var(--line2);
+            padding: 11px 24px;
+            cursor: pointer;
+            transition: color .15s, border-color .15s;
+        }
+
+        .cbtn-d:hover {
+            color: var(--w);
+            border-color: rgba(255, 255, 255, .2);
+        }
+
+        /* ═══════════════════════════════════
+   NAV
+═══════════════════════════════════ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 56px;
+            background: rgba(8, 8, 8, 0.94);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(16px);
+        }
+
+        .nlogo {
+            font-family: var(--disp);
+            font-size: 1.5rem;
+            letter-spacing: .06em;
+            color: var(--w);
+            line-height: 1;
+        }
+
+        .nlogo em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        .nlinks {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nlinks a {
+            font-family: var(--mono);
+            font-size: .65rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--dim);
+            text-decoration: none;
+            transition: color .15s;
+        }
+
+        .nlinks a:hover {
+            color: var(--w);
+        }
+
+        .ncta {
+            font-family: var(--mono);
+            font-size: .65rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #080808;
+            background: var(--red);
+            border: none;
+            padding: 0 22px;
+            height: 38px;
+            cursor: pointer;
+            transition: background .15s;
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+        }
+
+        .ncta:hover {
+            background: var(--rdbr);
+        }
+
+        /* ═══════════════════════════════════
+   HERO  — sfondo foto hangar/officina
+═══════════════════════════════════ */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 480px;
+            align-items: end;
+            padding: 0 56px 80px;
+            overflow: hidden;
+        }
+
+        /* Foto reale Unsplash: interno officina / hangar aeronautico */
+        .h-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=80') center/cover no-repeat;
+            opacity: .28;
+            transform: scale(1.04);
+            animation: hbgzoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes hbgzoom {
+            from {
+                transform: scale(1.04);
+            }
+
+            to {
+                transform: scale(1.0);
+            }
+        }
+
+        .h-vig {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to right, rgba(8, 8, 8, .97) 36%, rgba(8, 8, 8, .5) 68%, rgba(8, 8, 8, .82) 100%),
+                linear-gradient(to top, rgba(8, 8, 8, .92) 0%, transparent 42%);
+        }
+
+        .h-redline {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, transparent 0%, var(--red) 30%, var(--red) 70%, transparent 100%);
+        }
+
+        .h-left {
+            position: relative;
+            z-index: 2;
+        }
+
+        .h-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--mono);
+            font-size: .62rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--red);
+            border: 1px solid rgba(196, 26, 14, .4);
+            padding: 6px 14px 6px 10px;
+            margin-bottom: 36px;
+            opacity: 0;
+            animation: up .6s .2s forwards;
+        }
+
+        .h-chip::before {
+            content: '▶';
+            font-size: .45rem;
+            margin-right: 2px;
+        }
+
+        .h-title {
+            font-family: var(--disp);
+            font-size: clamp(72px, 10vw, 136px);
+            line-height: .88;
+            color: var(--w);
+            letter-spacing: -.01em;
+            opacity: 0;
+            animation: up .7s .35s forwards;
+        }
+
+        .h-title .accent {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--red);
+            display: block;
+        }
+
+        .h-rule {
+            width: 80px;
+            height: 3px;
+            background: var(--red);
+            margin: 36px 0;
+            opacity: 0;
+            animation: up .6s .55s forwards;
+        }
+
+        .h-sub {
+            font-family: var(--head);
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--mid);
+            max-width: 480px;
+            line-height: 1.7;
+            letter-spacing: .02em;
+            opacity: 0;
+            animation: up .6s .7s forwards;
+        }
+
+        .h-btns {
+            display: flex;
+            gap: 12px;
+            margin-top: 44px;
+            opacity: 0;
+            animation: up .6s .85s forwards;
+        }
+
+        .btn-solid {
+            font-family: var(--mono);
+            font-size: .68rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #080808;
+            background: var(--red);
+            padding: 15px 36px;
+            text-decoration: none;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+            transition: background .15s;
+        }
+
+        .btn-solid:hover {
+            background: var(--rdbr);
+        }
+
+        .btn-wire {
+            font-family: var(--mono);
+            font-size: .68rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--dim);
+            border: 1px solid rgba(255, 255, 255, .1);
+            padding: 15px 36px;
+            text-decoration: none;
+            transition: color .15s, border-color .15s;
+        }
+
+        .btn-wire:hover {
+            color: var(--w);
+            border-color: rgba(255, 255, 255, .3);
+        }
+
+        .h-right {
+            position: relative;
+            z-index: 2;
+            border-left: 1px solid var(--line2);
+            padding-left: 48px;
+            opacity: 0;
+            animation: fadein .8s 1s forwards;
+        }
+
+        .hstat {
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .hstat:first-child {
+            border-top: 1px solid var(--line);
+        }
+
+        .hstat-n {
+            font-family: var(--disp);
+            font-size: 3.8rem;
+            color: var(--w);
+            line-height: .9;
+        }
+
+        .hstat-n sup {
+            font-family: var(--head);
+            font-size: 1.2rem;
+            color: var(--red);
+            vertical-align: super;
+            font-weight: 700;
+        }
+
+        .hstat-l {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-top: 6px;
+        }
+
+        @keyframes up {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes fadein {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ═══════════════════════════════════
+   BAND
+═══════════════════════════════════ */
+        .band {
+            background: var(--red);
+            padding: 16px 56px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .band-inner {
+            display: flex;
+            gap: 56px;
+            white-space: nowrap;
+            animation: scroll 22s linear infinite;
+            flex-shrink: 0;
+        }
+
+        .band-inner span {
+            font-family: var(--mono);
+            font-size: .62rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: #080808;
+            font-weight: 500;
+        }
+
+        .band-sep {
+            color: rgba(8, 8, 8, .4) !important;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ═══════════════════════════════════
+   SECTIONS
+═══════════════════════════════════ */
+        .s {
+            padding: 100px 56px;
+        }
+
+        .s2 {
+            background: var(--bg2);
+        }
+
+        .lbl {
+            font-family: var(--mono);
+            font-size: .6rem;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lbl::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--red);
+        }
+
+        .sh {
+            font-family: var(--disp);
+            font-size: clamp(44px, 6.5vw, 88px);
+            line-height: .9;
+            color: var(--w);
+            letter-spacing: .01em;
+        }
+
+        .sh .dim {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, .15);
+        }
+
+        body p.lead {
+            font-family: var(--head);
+            font-size: .96rem;
+            font-weight: 400;
+            color: var(--mid);
+            line-height: 1.8;
+            letter-spacing: .02em;
+        }
+
+        /* ═══════════════════════════════════
+   SERVICES
+═══════════════════════════════════ */
+        .svc-head {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: end;
+        }
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 2px solid var(--red);
+            margin-top: 56px;
+        }
+
+        .svc {
+            padding: 44px 36px 40px;
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            position: relative;
+            overflow: hidden;
+            transition: background .2s;
+        }
+
+        .svc:nth-child(3n) {
+            border-right: none;
+        }
+
+        .svc:hover {
+            background: rgba(196, 26, 14, .05);
+        }
+
+        .svc-hover-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width .35s;
+        }
+
+        .svc:hover .svc-hover-bar {
+            width: 100%;
+        }
+
+        .svc-idx {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .24em;
+            color: var(--dim);
+            margin-bottom: 24px;
+        }
+
+        .svc-name {
+            font-family: var(--disp);
+            font-size: 1.55rem;
+            color: var(--w);
+            line-height: 1.05;
+            margin-bottom: 16px;
+        }
+
+        .svc-desc {
+            font-family: var(--head);
+            font-size: .86rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.75;
+        }
+
+        /* ═══════════════════════════════════
+   ABOUT  — foto ultraleggero reale
+═══════════════════════════════════ */
+        #about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            padding: 0;
+        }
+
+        .ab-img {
+            position: relative;
+            min-height: 680px;
+            overflow: hidden;
+        }
+
+        .ab-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(25%) contrast(1.08) brightness(.78);
+            transition: transform 8s ease;
+        }
+
+        #about:hover .ab-img img {
+            transform: scale(1.04);
+        }
+
+        .ab-img::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: var(--red);
+        }
+
+        .ab-copy {
+            padding: 80px 64px;
+            border-left: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg2);
+        }
+
+        .ab-copy p {
+            font-family: var(--head);
+            font-size: .94rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.85;
+            margin-top: 24px;
+        }
+
+        .ab-copy strong {
+            color: var(--w);
+            font-weight: 600;
+        }
+
+        .certs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 36px;
+        }
+
+        .cert {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--dim);
+            border: 1px solid var(--line2);
+            padding: 7px 14px;
+            clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+            transition: color .2s, border-color .2s;
+        }
+
+        .cert:hover {
+            color: var(--w);
+            border-color: rgba(255, 255, 255, .25);
+        }
+
+        /* ═══════════════════════════════════
+   FLEET
+═══════════════════════════════════ */
+        .fleet-head {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 56px;
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 2px solid var(--red);
+        }
+
+        .fcard {
+            padding: 40px 32px;
+            border-right: 1px solid var(--line);
+            transition: background .2s;
+            position: relative;
+        }
+
+        .fcard:last-child {
+            border-right: none;
+        }
+
+        .fcard:hover {
+            background: rgba(196, 26, 14, .05);
+        }
+
+        .fcard::before {
+            content: attr(data-n);
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-family: var(--disp);
+            font-size: 4rem;
+            color: rgba(255, 255, 255, .03);
+            line-height: 1;
+        }
+
+        .fcat {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 12px;
+        }
+
+        .fname {
+            font-family: var(--disp);
+            font-size: 1.4rem;
+            color: var(--w);
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .fmodels {
+            font-family: var(--head);
+            font-size: .82rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.65;
+        }
+
+        /* ═══════════════════════════════════
+   PROCESS
+═══════════════════════════════════ */
+        .proc-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 60px;
+        }
+
+        .proc-list {
+            border-top: 1px solid var(--line2);
+        }
+
+        .proc-row {
+            display: grid;
+            grid-template-columns: 96px 1fr;
+            align-items: stretch;
+            border-bottom: 1px solid var(--line);
+            transition: background .2s;
+        }
+
+        .proc-row:hover {
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .proc-n {
+            font-family: var(--disp);
+            font-size: 2.2rem;
+            color: var(--red);
+            padding: 36px 0;
+            border-right: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: .04em;
+        }
+
+        .proc-body {
+            padding: 36px 40px;
+        }
+
+        .proc-title {
+            font-family: var(--disp);
+            font-size: 1.4rem;
+            color: var(--w);
+            letter-spacing: .04em;
+            margin-bottom: 10px;
+        }
+
+        .proc-desc {
+            font-family: var(--head);
+            font-size: .86rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.75;
+            max-width: 600px;
+        }
+
+        /* ═══════════════════════════════════
+   QUOTES
+═══════════════════════════════════ */
+        #quotes {
+            background: var(--bg3);
+        }
+
+        .q-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 2px solid var(--red);
+            margin-top: 56px;
+        }
+
+        .qcard {
+            padding: 48px 40px;
+            border-right: 1px solid var(--line);
+            transition: background .2s;
+        }
+
+        .qcard:last-child {
+            border-right: none;
+        }
+
+        .qcard:hover {
+            background: rgba(196, 26, 14, .04);
+        }
+
+        .qmark {
+            font-family: var(--disp);
+            font-size: 5rem;
+            color: var(--red);
+            line-height: .7;
+            margin-bottom: 20px;
+            opacity: .8;
+        }
+
+        .qtext {
+            font-family: var(--head);
+            font-size: .9rem;
+            font-weight: 400;
+            color: var(--mid);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 32px;
+        }
+
+        .qline {
+            width: 36px;
+            height: 2px;
+            background: var(--red);
+            margin-bottom: 18px;
+        }
+
+        .qwho {
+            font-family: var(--mono);
+            font-size: .62rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--w);
+        }
+
+        .qrole {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-top: 4px;
+        }
+
+        /* ═══════════════════════════════════
+   CONTACT
+═══════════════════════════════════ */
+        #contact {
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .ct-left {
+            padding: 80px 56px;
+            background: var(--bg2);
+            border-right: 1px solid var(--line);
+        }
+
+        .ct-left p {
+            font-family: var(--head);
+            font-size: .94rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.8;
+            max-width: 380px;
+            margin-top: 24px;
+        }
+
+        .ct-meta {
+            margin-top: 48px;
+        }
+
+        .ct-row {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .ct-row:first-child {
+            border-top: 1px solid var(--line);
+        }
+
+        .ct-lbl {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 6px;
+        }
+
+        .ct-val {
+            font-family: var(--head);
+            font-size: .9rem;
+            font-weight: 400;
+            color: var(--w);
+            line-height: 1.6;
+        }
+
+        .ct-val a {
+            color: var(--w);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(196, 26, 14, .5);
+        }
+
+        .ct-val a:hover {
+            color: var(--rdbr);
+        }
+
+        .ct-right {
+            padding: 80px 56px;
+            background: var(--bg);
+        }
+
+        .fl {
+            display: block;
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 8px;
+        }
+
+        .fi,
+        .fta {
+            width: 100%;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--line);
+            border-left: 2px solid transparent;
+            padding: 13px 16px;
+            color: var(--w);
+            font-family: var(--head);
+            font-size: .9rem;
+            font-weight: 400;
+            outline: none;
+            margin-bottom: 22px;
+            transition: border-color .2s, background .2s;
+        }
+
+        .fi:focus,
+        .fta:focus {
+            border-color: rgba(255, 255, 255, .12);
+            border-left-color: var(--red);
+            background: rgba(255, 255, 255, .05);
+        }
+
+        .fta {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .fsub {
+            width: 100%;
+            font-family: var(--mono);
+            font-size: .68rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #080808;
+            background: var(--red);
+            border: none;
+            padding: 17px;
+            cursor: pointer;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+            transition: background .15s;
+        }
+
+        .fsub:hover {
+            background: var(--rdbr);
+        }
+
+        /* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+        footer {
+            background: #050505;
+            border-top: 1px solid var(--line);
+            padding: 28px 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flogo {
+            font-family: var(--disp);
+            font-size: 1.1rem;
+            letter-spacing: .06em;
+            color: var(--w);
+        }
+
+        .flogo em {
+            color: var(--red);
+            font-style: normal;
+        }
+
+        .fcopy {
+            font-family: var(--mono);
+            font-size: .56rem;
+            letter-spacing: .14em;
+            color: var(--dim);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .fnav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .fnav a {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--dim);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color .15s;
+        }
+
+        .fnav a:hover {
+            color: var(--w);
+        }
+
+        /* ═══════════════════════════════════
+   REVEAL
+═══════════════════════════════════ */
+        .rv {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .6s, transform .6s;
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+        @media(max-width:1024px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nlinks {
+                display: none;
+            }
+
+            .s,
+            .s2 {
+                padding: 64px 20px;
+            }
+
+            #hero {
+                grid-template-columns: 1fr;
+                padding: 0 20px 60px;
+            }
+
+            .h-right {
+                display: none;
+            }
+
+            .svc-head,
+            .fleet-head,
+            .proc-intro {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .svc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .svc {
+                border-right: none;
+            }
+
+            #about {
+                grid-template-columns: 1fr;
+            }
+
+            .ab-img {
+                min-height: 300px;
+            }
+
+            .ab-copy {
+                padding: 48px 20px;
+                border-left: none;
+                border-top: 1px solid var(--line);
+            }
+
+            .fleet-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .fcard:nth-child(2) {
+                border-right: none;
+            }
+
+            .q-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .qcard {
+                border-right: none;
+            }
+
+            #contact {
+                grid-template-columns: 1fr;
+            }
+
+            .ct-left,
+            .ct-right {
+                padding: 48px 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .cookie-bar {
+                padding: 16px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .modal-box {
+                padding: 36px 24px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nlogo">IRON<em>WING</em> MRO</div>
-  <ul class="nlinks">
-    <li><a href="#svc">Servizi</a></li>
-    <li><a href="#about">Chi Siamo</a></li>
-    <li><a href="#fleet">Flotta</a></li>
-    <li><a href="#process">Processo</a></li>
-    <li><a href="#contact">Contatti</a></li>
-  </ul>
-  <button class="ncta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Richiedi Preventivo</button>
-</nav>
+    <!-- ══════════════════════════════════════════
+     MODAL: PRIVACY
+══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-privacy">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('modal-privacy')">✕ Chiudi</button>
+            <div class="modal-lbl">Informativa</div>
+            <div class="modal-title">PRIVACY<br>POLICY</div>
+            <div class="modal-rule"></div>
+            <div class="modal-body">
+                <p>Snake Garage è titolare del trattamento dei dati personali raccolti tramite questo sito, in conformità al <strong>Regolamento UE 2016/679 (GDPR)</strong> e al D.Lgs. 196/2003.</p>
+                <h3>DATI RACCOLTI</h3>
+                <p>Raccogliamo esclusivamente i dati forniti volontariamente tramite il modulo di contatto: nome, cognome, organizzazione, tipo di aeromobile, tipo di intervento e messaggio. Non vengono raccolti dati sensibili.</p>
+                <h3>FINALITÀ DEL TRATTAMENTO</h3>
+                <ul>
+                    <li>Rispondere alle richieste di informazioni e preventivi</li>
+                    <li>Gestire i rapporti tecnici e commerciali</li>
+                    <li>Adempiere agli obblighi di legge</li>
+                </ul>
+                <h3>BASE GIURIDICA</h3>
+                <p>Il trattamento si basa sul consenso dell'interessato (Art. 6.1.a GDPR) e sull'esecuzione di misure precontrattuali (Art. 6.1.b GDPR).</p>
+                <h3>CONSERVAZIONE</h3>
+                <p>I dati vengono conservati per il tempo strettamente necessario, comunque non oltre <strong>5 anni</strong> salvo obblighi di legge.</p>
+                <h3>I TUOI DIRITTI</h3>
+                <p>Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione. Per esercitarli scrivi a: <a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a></p>
+                <h3>TITOLARE DEL TRATTAMENTO</h3>
+                <p>Snake Garage — Via Enrico Fermi 21, 42123 Reggio nell'Emilia<br>
+                    Tel: <a href="tel:+393669907230">+39 366 990 7230</a></p>
+            </div>
+        </div>
+    </div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="h-bg"></div>
-  <div class="h-vig"></div>
-  <div class="h-redline"></div>
-  <div class="h-left">
-    <div class="h-chip">EASA Part-145 Certified &nbsp;·&nbsp; Fiumicino &nbsp;·&nbsp; Dal 1989</div>
-    <h1 class="h-title">
-      FERRO.<br>
-      FUOCO.<br>
-      <span class="accent">QUOTA.</span>
-    </h1>
-    <div class="h-rule"></div>
-    <p class="h-sub">Officina aeronautica MRO di riferimento in Italia. Nessun compromesso sulla qualità. Nessuna tolleranza all'errore.</p>
-    <div class="h-btns">
-      <a href="#svc" class="btn-solid">I Nostri Servizi</a>
-      <a href="#about" class="btn-wire">Chi Siamo</a>
+    <!-- ══════════════════════════════════════════
+     MODAL: COOKIE
+══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-cookie">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('modal-cookie')">✕ Chiudi</button>
+            <div class="modal-lbl">Informativa</div>
+            <div class="modal-title">COOKIE<br>POLICY</div>
+            <div class="modal-rule"></div>
+            <div class="modal-body">
+                <p>Questo sito utilizza cookie in conformità alla <strong>Direttiva ePrivacy 2002/58/CE</strong> e al GDPR.</p>
+                <h3>COOKIE TECNICI</h3>
+                <p>Necessari al funzionamento del sito. Non richiedono consenso. Includono cookie di sessione e preferenze (es. scelta cookie).</p>
+                <h3>COOKIE ANALITICI</h3>
+                <p>Utilizzati in forma anonima e aggregata per capire come gli utenti navigano il sito. Attivati solo con il tuo esplicito consenso.</p>
+                <h3>COOKIE DI TERZE PARTI</h3>
+                <p>Il sito carica font da Google Fonts. Google può impostare cookie propri secondo la propria <a href="https://policies.google.com/privacy" target="_blank">privacy policy ↗</a>.</p>
+                <h3>GESTIONE E REVOCA</h3>
+                <p>Puoi revocare il consenso in qualsiasi momento tramite le impostazioni del browser o scrivendo a: <a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a></p>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="h-right">
-    <div class="hstat"><div class="hstat-n">35<sup>+</sup></div><div class="hstat-l">Anni sul campo</div></div>
-    <div class="hstat"><div class="hstat-n">4.200<sup>+</sup></div><div class="hstat-l">Aeromobili revisionati</div></div>
-    <div class="hstat"><div class="hstat-n">120</div><div class="hstat-l">Tecnici certificati EASA</div></div>
-    <div class="hstat"><div class="hstat-n">0</div><div class="hstat-l">Incidenti di sicurezza</div></div>
-  </div>
-</section>
 
-<!-- BAND -->
-<div class="band">
-  <div class="band-inner">
-    <span>EASA PART-145</span><span class="band-sep">///</span>
-    <span>ENAC CERTIFICATA</span><span class="band-sep">///</span>
-    <span>FAA REPAIR STATION</span><span class="band-sep">///</span>
-    <span>ISO 9001:2015</span><span class="band-sep">///</span>
-    <span>35 ANNI DI ESPERIENZA</span><span class="band-sep">///</span>
-    <span>ASSISTENZA H24</span><span class="band-sep">///</span>
-    <span>AOG RESPONSE</span><span class="band-sep">///</span>
-    <span>EASA PART-145</span><span class="band-sep">///</span>
-    <span>ENAC CERTIFICATA</span><span class="band-sep">///</span>
-    <span>FAA REPAIR STATION</span><span class="band-sep">///</span>
-    <span>ISO 9001:2015</span><span class="band-sep">///</span>
-    <span>35 ANNI DI ESPERIENZA</span><span class="band-sep">///</span>
-    <span>ASSISTENZA H24</span><span class="band-sep">///</span>
-    <span>AOG RESPONSE</span><span class="band-sep">///</span>
-  </div>
-</div>
+    <!-- ══════════════════════════════════════════
+     MODAL: NOTE LEGALI
+══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="modal-legal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal('modal-legal')">✕ Chiudi</button>
+            <div class="modal-lbl">Informativa</div>
+            <div class="modal-title">NOTE<br>LEGALI</div>
+            <div class="modal-rule"></div>
+            <div class="modal-body">
+                <h3>TITOLARE DEL SITO</h3>
+                <p><strong>Snake Garage</strong><br>
+                    Via Enrico Fermi 21 — 42123 Reggio nell'Emilia (RE)<br>
+                    Email: <a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a><br>
+                    Tel: <a href="tel:+393669907230">+39 366 990 7230</a></p>
+                <h3>PROPRIETÀ INTELLETTUALE</h3>
+                <p>Tutti i contenuti presenti su questo sito — testi, immagini, grafica, layout e codice — sono di proprietà di Snake Garage. È vietata qualsiasi riproduzione, anche parziale, senza autorizzazione scritta.</p>
+                <h3>LIMITAZIONE DI RESPONSABILITÀ</h3>
+                <p>Le informazioni presenti sul sito hanno carattere puramente informativo. Snake Garage non si assume responsabilità per errori od omissioni. I preventivi sono vincolanti solo se confermati per iscritto.</p>
+                <h3>CERTIFICAZIONI</h3>
+                <p>Snake Garage opera come meccanico Rotax IRMT abilitato. Le qualifiche sono verificabili su richiesta.</p>
+                <h3>LEGGE APPLICABILE</h3>
+                <p>Il sito è soggetto alla legge italiana. Foro competente esclusivo: <strong>Tribunale di Reggio Emilia</strong>.</p>
+            </div>
+        </div>
+    </div>
 
-<!-- SERVICES -->
-<section id="svc" class="s s2">
-  <div class="svc-head rv">
-    <div>
-      <div class="lbl">Servizi</div>
-      <h2 class="sh">COSA<br>FACCIAMO<br><span class="dim">OGNI GIORNO</span></h2>
+    <!-- ══════════════════════════════════════════
+     COOKIE BANNER
+══════════════════════════════════════════ -->
+    <div class="cookie-bar" id="cookie-bar">
+        <div class="cookie-text">
+            Utilizziamo cookie tecnici per il funzionamento del sito. Leggi la
+            <a onclick="openModal('modal-cookie')">Cookie Policy</a> e la
+            <a onclick="openModal('modal-privacy')">Privacy Policy</a>.
+        </div>
+        <div class="cookie-btns">
+            <button class="cbtn-d" onclick="dismissCookies()">Solo necessari</button>
+            <button class="cbtn-a" onclick="acceptCookies()">Accetta tutti</button>
+        </div>
     </div>
-    <p class="lead">MRO completo per aeromobili civili e militari. Ogni intervento è firmato da un tecnico licenziato EASA con materiali OEM certificati. Non accettiamo scorciatoie.</p>
-  </div>
-  <div class="svc-grid">
-    <div class="svc rv">
-      <div class="svc-hover-bar"></div>
-      <div class="svc-idx">01 — 06</div>
-      <div class="svc-name">Manutenzione<br>Programmata</div>
-      <p class="svc-desc">A-Check, B-Check, C-Check, D-Check. Ispezioni cicliche secondo CAME e AMM del costruttore. Documentazione certificata ad ogni passaggio.</p>
-    </div>
-    <div class="svc rv">
-      <div class="svc-hover-bar"></div>
-      <div class="svc-idx">02 — 06</div>
-      <div class="svc-name">Overhaul<br>Motori</div>
-      <p class="svc-desc">Smontaggio totale, rilievo dimensionale, sostituzione componenti life-limited. Test al banco e volo di collaudo. Turbina o pistone: zero differenze di standard.</p>
-    </div>
-    <div class="svc rv">
-      <div class="svc-hover-bar"></div>
-      <div class="svc-idx">03 — 06</div>
-      <div class="svc-name">Riparazione<br>Strutturale</div>
-      <p class="svc-desc">Fusoliera, superfici di controllo, strutture compositi e metalliche. Riparazioni secondo SRM con materiali OEM approvati. NDT interno certificato.</p>
-    </div>
-    <div class="svc rv">
-      <div class="svc-hover-bar"></div>
-      <div class="svc-idx">04 — 06</div>
-      <div class="svc-name">Avionica<br>& Avionics</div>
-      <p class="svc-desc">ADS-B, EFIS, TCAS, FMS, ILS, HUD. Installazione, sostituzione e upgrade. Bench test interno su tutti i sistemi prima del montaggio.</p>
-    </div>
-    <div class="svc rv">
-      <div class="svc-hover-bar"></div>
-      <div class="svc-idx">05 — 06</div>
-      <div class="svc-name">Impianti<br>Elettrici</div>
-      <p class="svc-desc">Diagnosi, riparazione e rifacimento di cablaggi, harness, pannelli di controllo e generatori. Test di continuità con strumentazione certificata.</p>
-    </div>
-    <div class="svc rv">
-      <div class="svc-hover-bar"></div>
-      <div class="svc-idx">06 — 06</div>
-      <div class="svc-name">Modifiche<br>& STC</div>
-      <p class="svc-desc">Design, approvazione ed esecuzione di modifiche STC. Gestiamo l'intero iter EASA/ENAC: dalla proposta tecnica al CRS finale.</p>
-    </div>
-  </div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="ab-img rv">
-    <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=900&q=80" alt="Hangar IronWing">
-  </div>
-  <div class="ab-copy rv">
-    <div class="lbl">Chi Siamo</div>
-    <h2 class="sh">35 ANNI.<br>ZERO<br><span class="dim">SCONTI.</span></h2>
-    <p>Fondati nel <strong>1989 a Fiumicino</strong>, siamo cresciuti un aeromobile alla volta. Oggi operiamo su <strong>8.000 m² di hangar</strong> con <strong>120 tecnici certificati EASA</strong> e una strumentazione diagnostica che pochi in Europa possono eguagliare.</p>
-    <p>La nostra reputazione non si costruisce con la pubblicità. Si costruisce con il lavoro. Ogni CRS che firmiamo è una garanzia personale di chi l'ha fatto.</p>
-    <div class="certs">
-      <span class="cert">EASA Part-145</span>
-      <span class="cert">ENAC</span>
-      <span class="cert">FAA Repair Station</span>
-      <span class="cert">ISO 9001:2015</span>
-      <span class="cert">ANAC Brazil</span>
-      <span class="cert">GCAA UAE</span>
-    </div>
-  </div>
-</section>
+    <!-- NAV -->
+    <nav>
+        <div class="nlogo">SNAKE<em>GARAGE</em></div>
+        <ul class="nlinks">
+            <li><a href="#svc">Servizi</a></li>
+            <li><a href="#about">Chi Siamo</a></li>
+            <li><a href="#fleet">Flotta</a></li>
+            <li><a href="#process">Processo</a></li>
+            <li><a href="#contact">Contatti</a></li>
+        </ul>
+        <button class="ncta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Richiedi Preventivo</button>
+    </nav>
 
-<!-- FLEET -->
-<section id="fleet" class="s s2">
-  <div class="fleet-head rv">
-    <div>
-      <div class="lbl">Tipologie</div>
-      <h2 class="sh">CHI PORTIAMO<br>IN HANGAR</h2>
-    </div>
-    <p class="lead">Dalla singola elica al doppio turbofan widebody. Non ci sono categorie che non trattiamo. Se ha le ali, sappiamo come tenerlo in volo.</p>
-  </div>
-  <div class="fleet-grid">
-    <div class="fcard rv" data-n="01">
-      <div class="fcat">Categoria 01</div>
-      <div class="fname">Narrowbody</div>
-      <div class="fmodels">Boeing 737 NG / MAX<br>Airbus A320 / A321neo</div>
-    </div>
-    <div class="fcard rv" data-n="02">
-      <div class="fcat">Categoria 02</div>
-      <div class="fname">Widebody</div>
-      <div class="fmodels">Boeing 777 / 787 Dreamliner<br>Airbus A330 / A350</div>
-    </div>
-    <div class="fcard rv" data-n="03">
-      <div class="fcat">Categoria 03</div>
-      <div class="fname">Elicotteri</div>
-      <div class="fmodels">Leonardo AW139 / AW189<br>Airbus H125 / H145 / H175</div>
-    </div>
-    <div class="fcard rv" data-n="04">
-      <div class="fcat">Categoria 04</div>
-      <div class="fname">Business Jet</div>
-      <div class="fmodels">Gulfstream G450 – G700<br>Bombardier Global / Challenger</div>
-    </div>
-  </div>
-</section>
+    <!-- ══════════════════════════════════════════
+     HERO — sfondo: hangar/officina aeronautica
+     Foto Unsplash: interno hangar aereo notturno
+══════════════════════════════════════════ -->
+    <section id="hero">
+        <div class="h-bg"></div>
+        <div class="h-vig"></div>
+        <div class="h-redline"></div>
+        <div class="h-left">
+            <div class="h-chip"><strong>Meccanico</strong> Rotax IRMT &nbsp;·&nbsp; Reggio Emilia &nbsp;·&nbsp; ULM Specialist</div>
+            <h1 class="h-title">
+                ALA.<br>
+                MOTORE.<br>
+                <span class="accent">QUOTA.</span>
+            </h1>
+            <div class="h-rule"></div>
+            <p class="h-sub">Centro manutenzione per aeromobili ultraleggeri. Interventi certificati, precisione meccanica e sicurezza operativa.</p>
+            <div class="h-btns">
+                <a href="#svc" class="btn-solid">I Nostri Servizi</a>
+                <a href="#about" class="btn-wire">Chi Siamo</a>
+            </div>
+        </div>
+        <div class="h-right">
+            <div class="hstat">
+                <div class="hstat-n">Rotax<sup>✓</sup></div>
+                <div class="hstat-l">Meccanico IRMT certificato</div>
+            </div>
+            <div class="hstat">
+                <div class="hstat-n">912<sup>/</sup>915</div>
+                <div class="hstat-l">Serie motori Rotax</div>
+            </div>
+            <div class="hstat">
+                <div class="hstat-n">ULM</div>
+                <div class="hstat-l">Specializzazione velivoli</div>
+            </div>
+            <div class="hstat">
+                <div class="hstat-n">0</div>
+                <div class="hstat-l">Compromessi sulla sicurezza</div>
+            </div>
+        </div>
+    </section>
 
-<!-- PROCESS -->
-<section id="process" class="s">
-  <div class="proc-intro rv">
-    <div>
-      <div class="lbl">Come Lavoriamo</div>
-      <h2 class="sh">IL<br>PROCESSO</h2>
+    <!-- BAND -->
+    <div class="band">
+        <div class="band-inner">
+            <span>MANUTENZIONE CERTIFICATA</span><span class="band-sep">///</span>
+            <span>SUPPORTO TECNICO</span><span class="band-sep">///</span>
+            <span>REVISIONI MOTORI</span><span class="band-sep">///</span>
+            <span>ASSISTENZA TECNICA</span><span class="band-sep">///</span>
+            <span>MECCANICO ROTAX IRMT</span><span class="band-sep">///</span>
+            <span>AEROMOBILI ULTRALEGGERI</span><span class="band-sep">///</span>
+            <span>REGGIO EMILIA</span><span class="band-sep">///</span>
+            <span>MANUTENZIONE CERTIFICATA</span><span class="band-sep">///</span>
+            <span>SUPPORTO TECNICO</span><span class="band-sep">///</span>
+            <span>REVISIONI MOTORI</span><span class="band-sep">///</span>
+            <span>ASSISTENZA TECNICA</span><span class="band-sep">///</span>
+            <span>MECCANICO ROTAX IRMT</span><span class="band-sep">///</span>
+            <span>AEROMOBILI ULTRALEGGERI</span><span class="band-sep">///</span>
+            <span>REGGIO EMILIA</span><span class="band-sep">///</span>
+        </div>
     </div>
-    <p class="lead">Cinque fasi. Nessuna saltata. Dall'accettazione al rilascio, ogni passo è tracciato, firmato e verificato. Questo è il metodo IronWing.</p>
-  </div>
-  <div class="proc-list">
-    <div class="proc-row rv">
-      <div class="proc-n">01</div>
-      <div class="proc-body">
-        <div class="proc-title">ACCETTAZIONE</div>
-        <p class="proc-desc">Riceviamo l'aeromobile, analizziamo il logbook tecnico e costruiamo un piano di lavoro con tempi e costi certi. Nessuna sorpresa a lavori iniziati.</p>
-      </div>
-    </div>
-    <div class="proc-row rv">
-      <div class="proc-n">02</div>
-      <div class="proc-body">
-        <div class="proc-title">ISPEZIONE</div>
-        <p class="proc-desc">Ispezione visiva, boroscopica e NDT completa. Ogni difformità entra nel sistema gestionale con fotografia e riferimento normativo. Nulla viene tralasciato.</p>
-      </div>
-    </div>
-    <div class="proc-row rv">
-      <div class="proc-n">03</div>
-      <div class="proc-body">
-        <div class="proc-title">INTERVENTO</div>
-        <p class="proc-desc">Esecuzione da tecnici licenziati con ricambi OEM o approvati. Ogni task card è firmata e tracciata. Nessun componente esce dalla nostra procedura qualità.</p>
-      </div>
-    </div>
-    <div class="proc-row rv">
-      <div class="proc-n">04</div>
-      <div class="proc-body">
-        <div class="proc-title">COLLAUDO</div>
-        <p class="proc-desc">Ground run, test funzionali completi e, dove richiesto, volo di collaudo con pilota certificato. Il mezzo torna operativo solo quando è pronto davvero.</p>
-      </div>
-    </div>
-    <div class="proc-row rv">
-      <div class="proc-n">05</div>
-      <div class="proc-body">
-        <div class="proc-title">RILASCIO</div>
-        <p class="proc-desc">Emissione del CRS EASA Form 1 e consegna del pacchetto documentale completo. Nessun aeromobile vola senza carta pulita. Mai.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- QUOTES -->
-<section id="quotes" class="s">
-  <div class="rv">
-    <div class="lbl">Clienti</div>
-    <h2 class="sh">LO DICONO<br>LORO</h2>
-  </div>
-  <div class="q-grid">
-    <div class="qcard rv">
-      <div class="qmark">"</div>
-      <p class="qtext">Il C-Check del nostro A320 completato in 12 giorni contro i 18 previsti. Qualità impeccabile, documentazione impeccabile. Partner irrinunciabile.</p>
-      <div class="qline"></div>
-      <div class="qwho">Marco Ferretti</div>
-      <div class="qrole">Director of Maintenance · SkyLine Airlines</div>
-    </div>
-    <div class="qcard rv">
-      <div class="qmark">"</div>
-      <p class="qtext">Overhaul motore Gulfstream in AOG. Risposta in 4 ore, aeromobile rilasciato in 72. Non credevo fosse possibile. L'ho visto con i miei occhi.</p>
-      <div class="qline"></div>
-      <div class="qwho">Sofia Marchetti</div>
-      <div class="qrole">Fleet Manager · Meridian Executive</div>
-    </div>
-    <div class="qcard rv">
-      <div class="qmark">"</div>
-      <p class="qtext">Dodici anni, flotta di elicotteri EMS. Zero fermo macchina non pianificato. Se hai bisogno di sapere chi è il migliore in Italia, hai trovato la risposta.</p>
-      <div class="qline"></div>
-      <div class="qwho">Roberto Esposito</div>
-      <div class="qrole">Operations Manager · AirRescue Italia</div>
-    </div>
-  </div>
-</section>
+    <!-- SERVICES -->
+    <section id="svc" class="s s2">
+        <div class="svc-head rv">
+            <div>
+                <div class="lbl">Servizi</div>
+                <h2 class="sh">COSA<br>FACCIAMO<br><span class="dim">OGNI GIORNO</span></h2>
+            </div>
+            <p class="lead">Manutenzione professionale per aeromobili ultraleggeri e motori Rotax. Ogni intervento è eseguito da un meccanico Rotax IRMT secondo standard aeronautici, con componenti certificati e procedure tecniche ufficiali.</p>
+        </div>
+        <div class="svc-grid">
+            <div class="svc rv">
+                <div class="svc-hover-bar"></div>
+                <div class="svc-idx">01 — 06</div>
+                <div class="svc-name">Manutenzione<br>Programmata ULM</div>
+                <p class="svc-desc">Ispezioni periodiche e manutenzione programmata per aeromobili ultraleggeri. Controlli su motori Rotax, sistemi di alimentazione, raffreddamento e componenti di volo secondo manuali del costruttore.</p>
+            </div>
+            <div class="svc rv">
+                <div class="svc-hover-bar"></div>
+                <div class="svc-idx">02 — 06</div>
+                <div class="svc-name">Revisione<br>Motori Rotax</div>
+                <p class="svc-desc">Smontaggio totale, rilievo dimensionale, sostituzione componenti life-limited. Test al banco e volo di collaudo. Turbina o pistone: zero differenze di standard.</p>
+            </div>
+            <div class="svc rv">
+                <div class="svc-hover-bar"></div>
+                <div class="svc-idx">03 — 06</div>
+                <div class="svc-name">Assistenza<br>Tecnica ULM</div>
+                <p class="svc-desc">Controlli tecnici, riparazioni e regolazioni su aeromobili ultraleggeri. Verifica strutture, impianti e componenti per garantire sicurezza e affidabilità in volo.</p>
+            </div>
+            <div class="svc rv">
+                <div class="svc-hover-bar"></div>
+                <div class="svc-idx">04 — 06</div>
+                <div class="svc-name">Strumentazione<br>& Avionica ULM</div>
+                <p class="svc-desc">Installazione, verifica e aggiornamento della strumentazione di bordo per ultraleggeri. Controllo strumenti motore, radio, intercom, transponder e navigazione.</p>
+            </div>
+            <div class="svc rv">
+                <div class="svc-hover-bar"></div>
+                <div class="svc-idx">05 — 06</div>
+                <div class="svc-name">Impianti<br>Elettrici ULM</div>
+                <p class="svc-desc">Diagnosi, riparazione e rifacimento di cablaggi, connessioni e impianti elettrici di bordo. Verifica avviamento, ricarica, batteria e continuità dei circuiti.</p>
+            </div>
+            <div class="svc rv">
+                <div class="svc-hover-bar"></div>
+                <div class="svc-idx">06 — 06</div>
+                <div class="svc-name">Motori<br>Rotax</div>
+                <p class="svc-desc">Manutenzione, controllo e diagnosi su motori Rotax per aeromobili ultraleggeri. Verifica tecnica dei componenti principali eseguita da meccanico Rotax IRMT.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="ct-left rv">
-    <div class="lbl">Contatti</div>
-    <h2 class="sh">PARLIA<br>MOCI<br><span class="dim">ORA.</span></h2>
-    <p>AOG, manutenzione programmata o upgrading avionica. Il nostro team risponde 24 ore su 24, 365 giorni l'anno. Nessun orario d'ufficio sul rischio.</p>
-    <div class="ct-meta">
-      <div class="ct-row">
-        <div class="ct-lbl">Indirizzo</div>
-        <div class="ct-val">Via Aeroporto 14, Hangar 7 — 00054 Fiumicino (RM)</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-lbl">Telefono H24</div>
-        <div class="ct-val">+39 06 1234 5678</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-lbl">Email</div>
-        <div class="ct-val">mro@ironwingmro.it &nbsp;·&nbsp; aog@ironwingmro.it</div>
-      </div>
-      <div class="ct-row">
-        <div class="ct-lbl">SITA / AFTN</div>
-        <div class="ct-val">FCOIWXH &nbsp;·&nbsp; LIRF</div>
-      </div>
-    </div>
-  </div>
-  <div class="ct-right rv">
-    <label class="fl">Nome e Cognome</label>
-    <input type="text" class="fi" placeholder="Capitano Rossi">
-    <label class="fl">Organizzazione</label>
-    <input type="text" class="fi" placeholder="Compagnia / Operatore">
-    <label class="fl">Aeromobile</label>
-    <input type="text" class="fi" placeholder="Tipo + Reg. — es. A320neo · I-DEMO">
-    <label class="fl">Tipo di intervento</label>
-    <input type="text" class="fi" placeholder="C-Check / AOG / STC / Avionics...">
-    <label class="fl">Messaggio</label>
-    <textarea class="fta" placeholder="Descrivici la situazione..."></textarea>
-    <button class="fsub" id="fsub">Invia Richiesta</button>
-  </div>
-</section>
+    <!-- ══════════════════════════════════════════
+     ABOUT — foto ultraleggero (P92 / Savanna)
+     Foto Unsplash: piccolo aereo monomotore
+══════════════════════════════════════════ -->
+    <section id="about">
+        <div class="ab-img rv">
+            <img src="https://images.unsplash.com/photo-1559628233-100c798642d5?w=900&q=80" alt="Tecnam P92 / ICP Savanna — aeromobile ultraleggero monomotore in volo, manutenzione Snake Garage Reggio Emilia" onerror="this.src='https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80'">
+        </div>
+        <div class="ab-copy rv">
+            <div class="lbl">Chi Siamo</div>
+            <h2 class="sh">IN HANGAR.<br>DA<br><span class="dim">SEMPRE.</span></h2>
+            <p>Officina specializzata nella manutenzione di <strong>aeromobili ultraleggeri</strong> con sede a <strong>Reggio Emilia</strong>. Lavoriamo quotidianamente su velivoli ULM e motori Rotax collaborando con scuole di volo e operatori del settore, tra cui <strong>Top Gun</strong>, uno dei principali centri di volo della zona.</p>
+            <p>La nostra reputazione si costruisce in hangar, intervento dopo intervento. Ogni manutenzione viene eseguita con <strong>precisione tecnica</strong> e attenzione alla sicurezza del volo.</p>
+            <div class="certs">
+                <span class="cert">Tecnico Rotax IRMT</span>
+                <span class="cert">Aeromobili ULM</span>
+                <span class="cert">Rotax 912 / 914 / 915</span>
+                <span class="cert">Scuole di Volo</span>
+            </div>
+        </div>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="flogo">IRON<em>WING</em> MRO</div>
-  <div class="fcopy">
-    © 2025 IronWing MRO S.r.l. &nbsp;·&nbsp; P.IVA 01234567890<br>
-    EASA Part-145 &nbsp;///&nbsp; ENAC &nbsp;///&nbsp; ISO 9001:2015
-  </div>
-  <nav class="fnav">
-    <a href="#">Privacy</a>
-    <a href="#">Cookie</a>
-    <a href="#">Note Legali</a>
-  </nav>
-</footer>
+    <!-- FLEET -->
+    <section id="fleet" class="s s2">
+        <div class="fleet-head rv">
+            <div>
+                <div class="lbl">Tipologie</div>
+                <h2 class="sh">AEROMOBILI<br>ULTRALEGGERI</h2>
+            </div>
+            <p class="lead">Operiamo su aeromobili ultraleggeri utilizzati per addestramento, volo sportivo e attività ricreativa. Se vola con un motore Rotax, sappiamo come mantenerlo efficiente e sicuro.</p>
+        </div>
+        <div class="fleet-grid">
+            <div class="fcard rv" data-n="01">
+                <div class="fcat">Categoria 01</div>
+                <div class="fname">Ultraleggeri</div>
+                <div class="fmodels">Scuole di volo<br>e velivoli privati</div>
+            </div>
+            <div class="fcard rv" data-n="02">
+                <div class="fcat">Categoria 02</div>
+                <div class="fname">Motori Rotax</div>
+                <div class="fmodels">Serie 912 / 914 / 915</div>
+            </div>
+            <div class="fcard rv" data-n="03">
+                <div class="fcat">Categoria 03</div>
+                <div class="fname">Velivoli ULM</div>
+                <div class="fmodels">Addestramento<br>e volo sportivo</div>
+            </div>
+            <div class="fcard rv" data-n="04">
+                <div class="fcat">Categoria 04</div>
+                <div class="fname">Collaborazioni</div>
+                <div class="fmodels">Scuole di volo<br>e centri aeronautici</div>
+            </div>
+        </div>
+    </section>
 
-<script>
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+    <!-- PROCESS -->
+    <section id="process" class="s">
+        <div class="proc-intro rv">
+            <div>
+                <div class="lbl">Come Lavoriamo</div>
+                <h2 class="sh">IL<br>PROCESSO</h2>
+            </div>
+            <p class="lead">Ogni intervento segue un processo chiaro: dall'accettazione del velivolo fino alla riconsegna. Analisi tecnica, manutenzione e verifiche finali per garantire sicurezza e affidabilità in volo.</p>
+        </div>
+        <div class="proc-list">
+            <div class="proc-row rv">
+                <div class="proc-n">01</div>
+                <div class="proc-body">
+                    <div class="proc-title">ACCETTAZIONE</div>
+                    <p class="proc-desc">Accettiamo l'aeromobile e analizziamo lo stato del motore e dei principali sistemi di bordo. Definiamo gli interventi necessari e pianifichiamo il lavoro.</p>
+                </div>
+            </div>
+            <div class="proc-row rv">
+                <div class="proc-n">02</div>
+                <div class="proc-body">
+                    <div class="proc-title">ISPEZIONE</div>
+                    <p class="proc-desc">Ispezione completa del velivolo e del motore Rotax. Controlliamo componenti principali, impianti e condizioni generali dell'aeromobile.</p>
+                </div>
+            </div>
+            <div class="proc-row rv">
+                <div class="proc-n">03</div>
+                <div class="proc-body">
+                    <div class="proc-title">INTERVENTO</div>
+                    <p class="proc-desc">Eseguiamo manutenzione, riparazioni o regolazioni sui sistemi interessati. Utilizziamo componenti e procedure tecniche conformi ai manuali del costruttore.</p>
+                </div>
+            </div>
+            <div class="proc-row rv">
+                <div class="proc-n">04</div>
+                <div class="proc-body">
+                    <div class="proc-title">COLLAUDO</div>
+                    <p class="proc-desc">Verifica funzionale dei sistemi e test del motore. Controlliamo che ogni intervento sia stato eseguito correttamente prima della riconsegna.</p>
+                </div>
+            </div>
+            <div class="proc-row rv">
+                <div class="proc-n">05</div>
+                <div class="proc-body">
+                    <div class="proc-title">RILASCIO</div>
+                    <p class="proc-desc">Consegna dell'aeromobile con documentazione degli interventi eseguiti e indicazioni per la manutenzione successiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-const obs = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('in'), i * 55);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.07 });
-document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+    <!-- QUOTES -->
+    <section id="quotes" class="s">
+        <div class="rv">
+            <div class="lbl">Clienti</div>
+            <h2 class="sh">LO DICONO<br>LORO</h2>
+        </div>
+        <div class="q-grid">
+            <div class="qcard rv">
+                <div class="qmark">"</div>
+                <p class="qtext">Manutenzione puntuale e professionale sul mio Rotax 912. Spiegano tutto, documentano tutto. Finalmente un'officina in cui mi fido davvero.</p>
+                <div class="qline"></div>
+                <div class="qwho">Marco Ferretti</div>
+                <div class="qrole">Pilota privato ULM · Reggio Emilia</div>
+            </div>
+            <div class="qcard rv">
+                <div class="qmark">"</div>
+                <p class="qtext">Collaboriamo con loro per la manutenzione di tutta la nostra flotta da scuola. Professionali, rapidi e sempre disponibili.</p>
+                <div class="qline"></div>
+                <div class="qwho">Sofia Marchetti</div>
+                <div class="qrole">Direttrice · Top Gun Flight School</div>
+            </div>
+            <div class="qcard rv">
+                <div class="qmark">"</div>
+                <p class="qtext">Revisione motore Rotax 912 eseguita alla perfezione. Zero problemi, documentazione completa. Il riferimento per chi vola ultraleggero in Emilia.</p>
+                <div class="qline"></div>
+                <div class="qwho">Roberto Esposito</div>
+                <div class="qrole">Istruttore di volo · Aeroclub Reggio</div>
+            </div>
+        </div>
+    </section>
 
-document.getElementById('fsub').addEventListener('click', function() {
-  this.textContent = 'RICHIESTA INVIATA ✓';
-  this.style.background = '#1a5c30';
-  this.style.color = 'var(--w)';
-  this.disabled = true;
-});
-</script>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="ct-left rv">
+            <div class="lbl">Contatti</div>
+            <h2 class="sh">PARLIA<br>MOCI<br><span class="dim">ORA.</span></h2>
+            <p>Per manutenzione, controlli tecnici o assistenza su aeromobili ultraleggeri e motori Rotax. Siamo operativi a Reggio Emilia e collaboriamo con scuole di volo e piloti privati. 24 ore su 24, 365 giorni l'anno.</p>
+            <div class="ct-meta">
+                <div class="ct-row">
+                    <div class="ct-lbl">Indirizzo</div>
+                    <div class="ct-val">Via Enrico Fermi 21 — 42123 Reggio nell'Emilia</div>
+                </div>
+                <div class="ct-row">
+                    <div class="ct-lbl">WhatsApp H24</div>
+                    <div class="ct-val"><a href="https://wa.me/393669907230" target="_blank">+39 366 990 7230 — Scrivici su WhatsApp ↗</a></div>
+                </div>
+                <div class="ct-row">
+                    <div class="ct-lbl">Telefono</div>
+                    <div class="ct-val"><a href="tel:+393669907230">+39 366 990 7230</a></div>
+                </div>
+                <div class="ct-row">
+                    <div class="ct-lbl">Email</div>
+                    <div class="ct-val"><a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="ct-right rv">
+            <label class="fl">Nome e Cognome</label>
+            <input type="text" class="fi" placeholder="Mario Rossi">
+            <label class="fl">Organizzazione</label>
+            <input type="text" class="fi" placeholder="Scuola di volo / Operatore privato">
+            <label class="fl">Aeromobile</label>
+            <input type="text" class="fi" placeholder="Tipo + Reg. — es. Tecnam P92 · I-DEMO">
+            <label class="fl">Tipo di intervento</label>
+            <input type="text" class="fi" placeholder="Revisione Rotax / Manutenzione / Assistenza...">
+            <label class="fl">Messaggio</label>
+            <textarea class="fta" placeholder="Descrivici la situazione..."></textarea>
+            <button class="fsub" id="fsub">Invia Richiesta</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="flogo">SNAKE<em>GARAGE</em></div>
+        <div class="fcopy">
+            © 2026 Snake Garage &nbsp;·&nbsp; Reggio nell'Emilia<br>
+            Meccanico Rotax IRMT &nbsp;///&nbsp; Aeromobili ULM
+        </div>
+        <nav class="fnav">
+            <a onclick="openModal('modal-privacy')">Privacy</a>
+            <a onclick="openModal('modal-cookie')">Cookie</a>
+            <a onclick="openModal('modal-legal')">Note Legali</a>
+        </nav>
+    </footer>
+
+    <script>
+        /* ── Smooth scroll ── */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) t.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        /* ── Reveal on scroll ── */
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('in'), i * 55);
+                    obs.unobserve(e.target);
+                }
+            });
+        }, {
+            threshold: 0.07
+        });
+        document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+        /* ── Form ── */
+        document.getElementById('fsub').addEventListener('click', function() {
+            this.textContent = 'RICHIESTA INVIATA ✓';
+            this.style.background = '#1a5c30';
+            this.style.color = 'var(--w)';
+            this.disabled = true;
+        });
+
+        /* ── Modals ── */
+        function openModal(id) {
+            document.getElementById(id).classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.modal-overlay').forEach(o => {
+            o.addEventListener('click', function(e) {
+                if (e.target === this) closeModal(this.id);
+            });
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape')
+                document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+        });
+
+        /* ── Cookie banner ── */
+        function dismissCookies() {
+            document.getElementById('cookie-bar').classList.add('hidden');
+            try {
+                localStorage.setItem('sgCookie', 'declined');
+            } catch (e) {}
+        }
+
+        function acceptCookies() {
+            document.getElementById('cookie-bar').classList.add('hidden');
+            try {
+                localStorage.setItem('sgCookie', 'accepted');
+            } catch (e) {}
+        }
+        try {
+            if (localStorage.getItem('sgCookie')) document.getElementById('cookie-bar').classList.add('hidden');
+        } catch (e) {}
+    </script>
 </body>
+
 </html>
