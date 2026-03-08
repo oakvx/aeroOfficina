@@ -1009,6 +1009,167 @@
         }
 
         /* ═══════════════════════════════════
+   OIL PRODUCTS
+═══════════════════════════════════ */
+        .shop-head {
+            max-width: 480px;
+        }
+
+        .oil-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            border-top: 2px solid var(--red);
+            padding-top: 0;
+        }
+
+        .oil-card {
+            border: 1px solid var(--line2);
+            background: var(--bg2);
+            overflow: hidden;
+            transition: border-color .25s, background .25s;
+            position: relative;
+        }
+
+        .oil-card:hover {
+            border-color: rgba(196, 26, 14, .45);
+            background: var(--bg3);
+        }
+
+        .oil-img-wrap {
+            position: relative;
+            width: 100%;
+            background: #0d0d0d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+            overflow: hidden;
+        }
+
+        .oil-img-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            filter: brightness(.93) contrast(1.04);
+            transition: transform .6s ease;
+        }
+
+        /* Se l'immagine non carica mostra placeholder minimo */
+        .oil-img-wrap.img-err {
+            height: 200px;
+            background: repeating-linear-gradient(45deg,
+                    #0d0d0d,
+                    #0d0d0d 10px,
+                    #111 10px,
+                    #111 20px);
+        }
+
+        .oil-card:hover .oil-img-wrap img {
+            transform: scale(1.04);
+        }
+
+        .oil-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-family: var(--mono);
+            font-size: .52rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: #080808;
+            background: var(--red);
+            padding: 5px 12px;
+            clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+        }
+
+        .oil-badge-alt {
+            background: var(--w);
+            color: #080808;
+        }
+
+        .oil-body {
+            padding: 32px 36px 36px;
+        }
+
+        .oil-brand {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 6px;
+        }
+
+        .oil-name {
+            font-family: var(--disp);
+            font-size: 2rem;
+            color: var(--w);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .oil-spec {
+            font-family: var(--mono);
+            font-size: .58rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 18px;
+        }
+
+        .oil-desc {
+            font-family: var(--head);
+            font-size: .86rem;
+            font-weight: 400;
+            color: var(--dim);
+            line-height: 1.78;
+            margin-bottom: 22px;
+        }
+
+        .oil-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .oil-tag {
+            font-family: var(--mono);
+            font-size: .54rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--dim);
+            border: 1px solid var(--line2);
+            padding: 5px 12px;
+        }
+
+        .oil-btn {
+            display: inline-block;
+            font-family: var(--mono);
+            font-size: .65rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: #080808;
+            background: var(--red);
+            padding: 13px 28px;
+            text-decoration: none;
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+            transition: background .15s;
+        }
+
+        .oil-btn:hover {
+            background: var(--rdbr);
+        }
+
+        @media(max-width:1024px) {
+            .oil-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ═══════════════════════════════════
    PROCESS
 ═══════════════════════════════════ */
         .proc-intro {
@@ -1459,7 +1620,7 @@
                 <h3>CONSERVAZIONE</h3>
                 <p>I dati vengono conservati per il tempo strettamente necessario, comunque non oltre <strong>5 anni</strong> salvo obblighi di legge.</p>
                 <h3>I TUOI DIRITTI</h3>
-                <p>Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione. Per esercitarli scrivi a: <a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a></p>
+                <p>Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione. Per esercitarli scrivi a: <a href="/cdn-cgi/l/email-protection#aaf9c4cbc1cfcdcbd8cbcdcfeac5dfdec6c5c5c184c9c5c7"><span class="__cf_email__" data-cfemail="6b38050a000e0c0a190a0c0e2b041e1f0704040045080406">[email&#160;protected]</span></a></p>
                 <h3>TITOLARE DEL TRATTAMENTO</h3>
                 <p>Snake Garage — Via Enrico Fermi 21, 42123 Reggio nell'Emilia<br>
                     Tel: <a href="tel:+393669907230">+39 366 990 7230</a></p>
@@ -1485,7 +1646,7 @@
                 <h3>COOKIE DI TERZE PARTI</h3>
                 <p>Il sito carica font da Google Fonts. Google può impostare cookie propri secondo la propria <a href="https://policies.google.com/privacy" target="_blank">privacy policy ↗</a>.</p>
                 <h3>GESTIONE E REVOCA</h3>
-                <p>Puoi revocare il consenso in qualsiasi momento tramite le impostazioni del browser o scrivendo a: <a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a></p>
+                <p>Puoi revocare il consenso in qualsiasi momento tramite le impostazioni del browser o scrivendo a: <a href="/cdn-cgi/l/email-protection#bae9d4dbd1dfdddbc8dbdddffad5cfced6d5d5d194d9d5d7"><span class="__cf_email__" data-cfemail="4d1e232c26282a2c3f2c2a280d22383921222226632e2220">[email&#160;protected]</span></a></p>
             </div>
         </div>
     </div>
@@ -1503,7 +1664,7 @@
                 <h3>TITOLARE DEL SITO</h3>
                 <p><strong>Snake Garage</strong><br>
                     Via Enrico Fermi 21 — 42123 Reggio nell'Emilia (RE)<br>
-                    Email: <a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a><br>
+                    Email: <a href="/cdn-cgi/l/email-protection#de8db0bfb5bbb9bfacbfb9bb9eb1abaab2b1b1b5f0bdb1b3"><span class="__cf_email__" data-cfemail="ffac919e949a989e8d9e989abf908a8b93909094d19c9092">[email&#160;protected]</span></a><br>
                     Tel: <a href="tel:+393669907230">+39 366 990 7230</a></p>
                 <h3>PROPRIETÀ INTELLETTUALE</h3>
                 <p>Tutti i contenuti presenti su questo sito — testi, immagini, grafica, layout e codice — sono di proprietà di Snake Garage. È vietata qualsiasi riproduzione, anche parziale, senza autorizzazione scritta.</p>
@@ -1547,7 +1708,7 @@
 
     <!-- ══════════════════════════════════════════
      HERO — sfondo: hangar/officina aeronautica
-     Foto h: interno hangar aereo notturno
+     Foto Unsplash: interno hangar aereo notturno
 ══════════════════════════════════════════ -->
     <section id="hero">
         <div class="h-bg"></div>
@@ -1638,41 +1799,42 @@
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">04 — 06</div>
-                <div class="svc-name">Strumentazione<br>& Avionica ULM</div>
+                <div class="svc-name">Strumentazione<br>&amp; Avionica ULM</div>
                 <p class="svc-desc">Installazione, verifica e aggiornamento della strumentazione di bordo per ultraleggeri. Controllo strumenti motore, radio, intercom, transponder e navigazione.</p>
             </div>
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">05 — 06</div>
                 <div class="svc-name">Impianti<br>Elettrici ULM</div>
-                <p class="svc-desc">Diagnosi, riparazione e rifacimento di cablaggi, connessioni e impianti elettrici di bordo. Verifica avviamento, ricarica, batteria e continuità dei circuiti.</p>
+                <p class="svc-desc">Diagnosi, riparazione e rifacimento di cablaggi, connessioni e impianti elettrici di bordo. Verifica avviamento, ricarica e continuità dei circuiti. <strong>Cambio batteria</strong> su ogni tipologia di ultraleggero.</p>
             </div>
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">06 — 06</div>
                 <div class="svc-name">Motori<br>Rotax</div>
-                <p class="svc-desc">Manutenzione, controllo e diagnosi su motori Rotax per aeromobili ultraleggeri. Verifica tecnica dei componenti principali eseguita da meccanico Rotax IRMT.</p>
+                <p class="svc-desc">Manutenzione programmata su motori Rotax 912i, 912, 914, 915, 916i. Ispezioni periodiche a 25, 50, 100 e 200 ore secondo le procedure del costruttore. Interventi eseguiti da meccanico Rotax IRMT certificato.</p>
             </div>
         </div>
     </section>
 
     <!-- ══════════════════════════════════════════
-     ABOUT — foto ultraleggero (P92 / Savannah)
-     Foto h: piccolo aereo monomotore
+     ABOUT — foto ultraleggero (P92 / Savanna)
+     Foto Unsplash: piccolo aereo monomotore
 ══════════════════════════════════════════ -->
     <section id="about">
         <div class="ab-img rv">
-            <img src="https://www.icpaviazione.it/wp-content/uploads/2024/07/D4S_5241-scaled.jpg" alt=ICP Savanna — aeromobile ultraleggero monomotore in volo, manutenzione Snake Garage Reggio Emilia" onerror="this.src='https://www.icpaviazione.it/wp-content/uploads/2024/07/D4S_5241-scaled.jpg' width=900 ">
+            <img src="https://images.unsplash.com/photo-1559628233-100c798642d5?w=900&q=80" alt="Tecnam P92 / ICP Savanna — aeromobile ultraleggero monomotore in volo, manutenzione Snake Garage Reggio Emilia" onerror="this.src='https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80'">
         </div>
         <div class="ab-copy rv">
             <div class="lbl">Chi Siamo</div>
             <h2 class="sh">IN HANGAR.<br>DA<br><span class="dim">SEMPRE.</span></h2>
-            <p>Officina specializzata nella manutenzione di <strong>aeromobili ultraleggeri</strong> con sede a <strong>Reggio Emilia</strong>. Lavoriamo quotidianamente su velivoli ULM e motori Rotax collaborando con scuole di volo e operatori del settore, tra cui <strong>Top Gun</strong>, uno dei principali centri di volo della zona.</p>
+            <p>Officina specializzata nella manutenzione di <strong>aeromobili ultraleggeri</strong> con sede a <strong>Fogliano – Reggio Emilia</strong>. Lavoriamo quotidianamente su velivoli ULM e motori Rotax collaborando con scuole di volo e operatori del settore, tra cui <strong>Top Gun</strong>, uno dei principali centri di volo della zona.</p>
+            <p>Eseguiamo manutenzioni programmate e controlli tecnici sui motori Rotax <strong>912, 912iS, 914, 915iS</strong> e <strong>916iS</strong>, nel rispetto delle procedure previste dal costruttore. L'attività comprende le ispezioni periodiche da <strong>25, 50, 100 e 200 ore</strong>, con verifica dei principali sistemi motore e controllo dei parametri operativi secondo i manuali tecnici Rotax. Gli interventi sono eseguiti da <strong>tecnico certificato Rotax IRMT</strong>, con particolare attenzione all'affidabilità del motore e alla sicurezza operativa del velivolo.</p>
             <p>La nostra reputazione si costruisce in hangar, intervento dopo intervento. Ogni manutenzione viene eseguita con <strong>precisione tecnica</strong> e attenzione alla sicurezza del volo.</p>
             <div class="certs">
                 <span class="cert">Tecnico Rotax IRMT</span>
                 <span class="cert">Aeromobili ULM</span>
-                <span class="cert">Rotax 912 / 914 / 915</span>
+                <span class="cert">Rotax 912i / 912 / 914 / 915 / 916i</span>
                 <span class="cert">Scuole di Volo</span>
             </div>
         </div>
@@ -1691,22 +1853,69 @@
             <div class="fcard rv" data-n="01">
                 <div class="fcat">Categoria 01</div>
                 <div class="fname">Ultraleggeri</div>
-                <div class="fmodels">Scuole di volo<br>e velivoli privati</div>
+                <div class="fmodels">Ultraleggeri per scuole volo<br>Velivoli privati</div>
             </div>
             <div class="fcard rv" data-n="02">
                 <div class="fcat">Categoria 02</div>
                 <div class="fname">Motori Rotax</div>
-                <div class="fmodels">Serie 912 / 914 / 915</div>
+                <div class="fmodels">912i &nbsp;·&nbsp; 912 &nbsp;·&nbsp; 914<br>915 &nbsp;·&nbsp; 916i</div>
             </div>
             <div class="fcard rv" data-n="03">
                 <div class="fcat">Categoria 03</div>
                 <div class="fname">Velivoli ULM</div>
-                <div class="fmodels">Addestramento<br>e volo sportivo</div>
+                <div class="fmodels">Sierra Tecnam &nbsp;·&nbsp; Tecnam P92<br>P2008 &nbsp;·&nbsp; Evektor 97<br>Flash Confort</div>
             </div>
             <div class="fcard rv" data-n="04">
                 <div class="fcat">Categoria 04</div>
                 <div class="fname">Collaborazioni</div>
-                <div class="fmodels">Scuole di volo<br>e centri aeronautici</div>
+                <div class="fmodels">Scuole di volo e centri aeronautici<br>Vendita ricambi Rotax</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OIL PRODUCTS -->
+    <section id="shop" class="s">
+        <div class="shop-head rv">
+            <div class="lbl">Ricambi &amp; Prodotti</div>
+            <h2 class="sh">OLIO<br>ROTAX<br><span class="dim">912</span></h2>
+        </div>
+        <p class="lead rv" style="max-width:640px;margin-top:24px;margin-bottom:56px;">Gli oli certificati per i motori Rotax serie 912. Prodotti consigliati e testati da BRP-Powertrain, disponibili online con spedizione rapida in Italia.</p>
+        <div class="oil-grid">
+            <div class="oil-card rv">
+                <div class="oil-img-wrap">
+                    <img src="https://i.ibb.co/7xghzRfr/image.png" alt="AeroShell Oil Sport Plus 4 — olio semisintetico per Rotax 912" onload="this.parentElement.classList.add('loaded')" onerror="this.parentElement.classList.add('img-err')">
+                    <div class="oil-badge">CONSIGLIATO ROTAX</div>
+                </div>
+                <div class="oil-body">
+                    <div class="oil-brand">AeroShell</div>
+                    <div class="oil-name">Sport Plus 4</div>
+                    <div class="oil-spec">Semisintetico &nbsp;·&nbsp; 10W-40 &nbsp;·&nbsp; 1 lt</div>
+                    <p class="oil-desc">L'olio ufficialmente sviluppato da Shell per i motori Rotax 912 e 914. Certificato RON 424 da BRP-Powertrain. Compatibile con benzina verde e Avgas 100LL. Formulato per motori con gearbox integrato.</p>
+                    <div class="oil-tags">
+                        <span class="oil-tag">Rotax 912</span>
+                        <span class="oil-tag">Rotax 914</span>
+                        <span class="oil-tag">RON 424</span>
+                    </div>
+                    <a href="https://www.marc-ingegno.it/manutenzione-ricambi-vari/05020104-aeroshell-oil-sportplus4-per-motori-rotax-1-" target="_blank" rel="noopener" class="oil-btn">Acquista Online ↗</a>
+                </div>
+            </div>
+            <div class="oil-card rv">
+                <div class="oil-img-wrap">
+                    <img src="https://i.ibb.co/ym07085s/image-removebg-preview.png" alt="Mobil 1 Racing 4T 10W-40 — olio sintetico per Rotax 912" onload="this.parentElement.classList.add('loaded')" onerror="this.src=this.dataset.src;this.removeAttribute('data-src');this.onerror=function(){this.parentElement.classList.add('img-err')}">
+                    <div class="oil-badge oil-badge-alt">FULL SYNTHETIC</div>
+                </div>
+                <div class="oil-body">
+                    <div class="oil-brand">Mobil 1</div>
+                    <div class="oil-name">Racing 4T</div>
+                    <div class="oil-spec">Sintetico completo &nbsp;·&nbsp; 10W-40 &nbsp;·&nbsp; 1 lt</div>
+                    <p class="oil-desc">Olio sintetico ad alte prestazioni approvato per i motori Rotax 4 tempi. Eccellente stabilità termica, protezione dall'usura e pulizia del motore. Usato con successo su Rotax 912ULS con oltre 800 ore.</p>
+                    <div class="oil-tags">
+                        <span class="oil-tag">Rotax 912</span>
+                        <span class="oil-tag">Rotax 914</span>
+                        <span class="oil-tag">JASO MA</span>
+                    </div>
+                    <a href="https://www.bronchicombustibili.com/prodotto/mobil-1-racing-4t/" target="_blank" rel="noopener" class="oil-btn">Acquista Online ↗</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1811,7 +2020,7 @@
                 </div>
                 <div class="ct-row">
                     <div class="ct-lbl">Email</div>
-                    <div class="ct-val"><a href="mailto:Snakegarage@outlook.com">Snakegarage@outlook.com</a></div>
+                    <div class="ct-val"><a href="/cdn-cgi/l/email-protection#277449464c42404655464042674852534b48484c0944484a"><span class="__cf_email__" data-cfemail="772419161c12101605161012371802031b18181c5914181a">[email&#160;protected]</span></a></div>
                 </div>
             </div>
         </div>
@@ -1835,8 +2044,7 @@
         <div class="flogo">SNAKE<em>GARAGE</em></div>
         <div class="fcopy">
             © 2026 Snake Garage &nbsp;·&nbsp; Reggio nell'Emilia<br>
-            Meccanico Rotax IRMT &nbsp;///&nbsp; Aeromobili ULM<br>
-            made by @oakvx at <a href="mailto:oakvx7@gmail.com">oakvx7@gmail.com</a>, tutti i diritti riservati
+            Meccanico Rotax IRMT &nbsp;///&nbsp; Aeromobili ULM
         </div>
         <nav class="fnav">
             <a onclick="openModal('modal-privacy')">Privacy</a>
@@ -1845,6 +2053,7 @@
         </nav>
     </footer>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         /* ── Smooth scroll ── */
         document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -1869,6 +2078,11 @@
             threshold: 0.07
         });
         document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+        /* Fallback: se l'observer non scatta, mostra tutto dopo 1.5s */
+        setTimeout(() => {
+            document.querySelectorAll('.rv:not(.in)').forEach(el => el.classList.add('in'));
+        }, 1500);
 
         /* ── Form ── */
         document.getElementById('fsub').addEventListener('click', function() {
@@ -1897,24 +2111,6 @@
             if (e.key === 'Escape')
                 document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
         });
-
-        /* ── Cookie banner ── */
-        function dismissCookies() {
-            document.getElementById('cookie-bar').classList.add('hidden');
-            try {
-                localStorage.setItem('sgCookie', 'declined');
-            } catch (e) {}
-        }
-
-        function acceptCookies() {
-            document.getElementById('cookie-bar').classList.add('hidden');
-            try {
-                localStorage.setItem('sgCookie', 'accepted');
-            } catch (e) {}
-        }
-        try {
-            if (localStorage.getItem('sgCookie')) document.getElementById('cookie-bar').classList.add('hidden');
-        } catch (e) {}
     </script>
 </body>
 
