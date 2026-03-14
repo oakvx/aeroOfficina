@@ -12,1536 +12,1228 @@
     <link rel="canonical" href="https://www.snakegarage.it/">
     <meta name="geo.region" content="IT-RE">
     <meta name="geo.placename" content="Reggio nell'Emilia">
-    <meta name="geo.position" content="44.6980;10.6308">
-    <meta name="ICBM" content="44.6980, 10.6308">
     <meta property="og:type" content="business.business">
     <meta property="og:site_name" content="Snake Garage">
-    <meta property="og:title" content="Snake Garage — Officina ULM &amp; Motori Rotax | Reggio Emilia">
+    <meta property="og:title" content="Snake Garage — Officina ULM & Motori Rotax | Reggio Emilia">
     <meta property="og:description" content="Officina specializzata in aeromobili ultraleggeri e motori Rotax (912 / 914 / 915) a Reggio Emilia. Meccanico IRMT certificato. Manutenzione, revisione e assistenza H24.">
-    <meta property="og:url" content="https://www.snakegarage.it/">
-    <meta property="og:image" content="https://www.snakegarage.it/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Snake Garage — Officina ULM e Motori Rotax a Reggio Emilia">
     <meta property="og:locale" content="it_IT">
-    <meta property="business:contact_data:street_address" content="Via Enrico Fermi 21">
-    <meta property="business:contact_data:locality" content="Reggio nell'Emilia">
-    <meta property="business:contact_data:postal_code" content="42123">
-    <meta property="business:contact_data:country_name" content="Italia">
-    <meta property="business:contact_data:phone_number" content="+393669907230">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Snake Garage — Officina ULM &amp; Motori Rotax | Reggio Emilia">
-    <meta name="twitter:description" content="Officina specializzata in aeromobili ULM e motori Rotax a Reggio Emilia. Meccanico IRMT certificato. Assistenza H24.">
-    <meta name="twitter:image" content="https://www.snakegarage.it/og-image.jpg">
-    <meta name="twitter:image:alt" content="Snake Garage — Officina ULM e Motori Rotax a Reggio Emilia">
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "AutoRepair",
-            "name": "Snake Garage"
-        }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoRepair","name":"Snake Garage"}</script>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Oswald:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #080808;
+            --bg:  #080808;
             --bg2: #0e0e0e;
             --bg3: #141414;
-            --line: rgba(255, 255, 255, 0.06);
-            --line2: rgba(255, 255, 255, 0.12);
-            --w: #F0ECE4;
+            --line:  rgba(255,255,255,0.06);
+            --line2: rgba(255,255,255,0.12);
+            --w:   #F0ECE4;
             --dim: #7A7068;
             --mid: #AAA09A;
             --red: #C41A0E;
-            --rdbr: #FF2A1A;
-            --disp: 'Black Han Sans', sans-serif;
-            --head: 'Oswald', sans-serif;
-            --mono: 'Share Tech Mono', monospace;
+            --rdbr:#FF2A1A;
+            --disp:'Black Han Sans',sans-serif;
+            --head:'Oswald',sans-serif;
+            --mono:'Share Tech Mono',monospace;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior:smooth; }
 
         body {
-            background: var(--bg);
-            color: var(--w);
-            font-family: var(--head);
-            overflow-x: hidden;
+            background:var(--bg);
+            color:var(--w);
+            font-family:var(--head);
+            overflow-x:hidden;
         }
 
         body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg' %3E%3Cfilter id='n' %3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1' /%3E%3C/svg%3E");
-            background-size: 180px;
-            opacity: 0.028;
-            pointer-events: none;
+            content:'';
+            position:fixed;
+            inset:0;
+            z-index:0;
+            background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            background-size:180px;
+            opacity:.028;
+            pointer-events:none;
         }
 
-
-        /* MODALS */
+        /* ─── MODALS ─────────────────────────────────── */
         .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.88);
-            backdrop-filter: blur(10px);
-            overflow-y: auto;
-            padding: 80px 20px 60px;
-            align-items: flex-start;
-            justify-content: center;
+            display:none;
+            position:fixed;
+            inset:0;
+            z-index:1000;
+            background:rgba(0,0,0,.88);
+            backdrop-filter:blur(10px);
+            overflow-y:auto;
+            padding:80px 20px 60px;
+            align-items:flex-start;
+            justify-content:center;
         }
-
-        .modal-overlay.open {
-            display: flex;
-        }
+        .modal-overlay.open { display:flex; }
 
         .modal-box {
-            background: var(--bg2);
-            border: 1px solid var(--line2);
-            border-top: 3px solid var(--red);
-            max-width: 680px;
-            width: 100%;
-            padding: 52px 56px;
-            position: relative;
-            animation: mup .25s ease;
+            background:var(--bg2);
+            border:1px solid var(--line2);
+            border-top:3px solid var(--red);
+            max-width:680px;
+            width:100%;
+            padding:52px 56px;
+            position:relative;
+            animation:mup .25s ease;
         }
-
         @keyframes mup {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            to {
-                opacity: 1;
-                transform: none;
-            }
+            from { opacity:0; transform:translateY(18px); }
+            to   { opacity:1; transform:none; }
         }
 
         .modal-close {
-            position: absolute;
-            top: 18px;
-            right: 22px;
-            background: none;
-            border: 1px solid var(--line2);
-            font-family: var(--mono);
-            font-size: .6rem;
-            letter-spacing: .2em;
-            color: var(--dim);
-            cursor: pointer;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            transition: color .15s, border-color .15s;
+            position:absolute;
+            top:18px; right:22px;
+            background:none;
+            border:1px solid var(--line2);
+            font-family:var(--mono);
+            font-size:.6rem;
+            letter-spacing:.2em;
+            color:var(--dim);
+            cursor:pointer;
+            text-transform:uppercase;
+            padding:6px 14px;
+            transition:color .15s,border-color .15s;
         }
-
-        .modal-close:hover {
-            color: var(--w);
-            border-color: rgba(255, 255, 255, .25);
-        }
+        .modal-close:hover { color:var(--w); border-color:rgba(255,255,255,.25); }
 
         .modal-lbl {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .3em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.3em;
+            text-transform:uppercase;
+            color:var(--red);
+            margin-bottom:12px;
+            display:flex;
+            align-items:center;
+            gap:10px;
         }
-
-        .modal-lbl::before {
-            content: '';
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: var(--red);
-        }
+        .modal-lbl::before { content:''; display:block; width:28px; height:2px; background:var(--red); }
 
         .modal-title {
-            font-family: var(--disp);
-            font-size: clamp(30px, 5vw, 54px);
-            color: var(--w);
-            line-height: .9;
-            margin-bottom: 24px;
+            font-family:var(--disp);
+            font-size:clamp(30px,5vw,54px);
+            color:var(--w);
+            line-height:.9;
+            margin-bottom:24px;
         }
+        .modal-rule { width:40px; height:2px; background:var(--red); margin-bottom:28px; }
 
-        .modal-rule {
-            width: 40px;
-            height: 2px;
-            background: var(--red);
-            margin-bottom: 28px;
-        }
+        .modal-body { font-family:var(--head); font-size:.88rem; font-weight:400; color:var(--dim); line-height:1.85; }
+        .modal-body h3 { font-family:var(--disp); font-size:1rem; color:var(--w); margin:26px 0 8px; letter-spacing:.06em; }
+        .modal-body p  { margin-bottom:12px; }
+        .modal-body ul { padding-left:20px; margin-bottom:12px; }
+        .modal-body li { margin-bottom:5px; }
+        .modal-body strong { color:var(--mid); font-weight:600; }
+        .modal-body a  { color:var(--red); text-decoration:none; }
+        .modal-body a:hover { color:var(--rdbr); text-decoration:underline; }
 
-        .modal-body {
-            font-family: var(--head);
-            font-size: .88rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.85;
-        }
-
-        .modal-body h3 {
-            font-family: var(--disp);
-            font-size: 1rem;
-            color: var(--w);
-            margin: 26px 0 8px;
-            letter-spacing: .06em;
-        }
-
-        .modal-body p {
-            margin-bottom: 12px;
-        }
-
-        .modal-body ul {
-            padding-left: 20px;
-            margin-bottom: 12px;
-        }
-
-        .modal-body li {
-            margin-bottom: 5px;
-        }
-
-        .modal-body strong {
-            color: var(--mid);
-            font-weight: 600;
-        }
-
-        .modal-body a {
-            color: var(--red);
-            text-decoration: none;
-        }
-
-        .modal-body a:hover {
-            color: var(--rdbr);
-            text-decoration: underline;
-        }
-
-        /* COOKIE */
+        /* ─── COOKIE BAR ─────────────────────────────── */
         .cookie-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 500;
-            background: rgba(12, 12, 12, 0.97);
-            border-top: 1px solid var(--line2);
-            padding: 18px 56px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            backdrop-filter: blur(10px);
-            transition: transform .4s cubic-bezier(.4, 0, .2, 1);
+            position:fixed;
+            bottom:0; left:0; right:0;
+            z-index:500;
+            background:rgba(12,12,12,.97);
+            border-top:1px solid var(--line2);
+            padding:18px 56px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:24px;
+            backdrop-filter:blur(10px);
+            transition:transform .4s cubic-bezier(.4,0,.2,1);
         }
-
-        .cookie-bar.hidden {
-            transform: translateY(110%);
-        }
+        .cookie-bar.hidden { transform:translateY(110%); }
 
         .cookie-text {
-            font-family: var(--head);
-            font-size: .82rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.6;
-            max-width: 620px;
+            font-family:var(--head);
+            font-size:.82rem;
+            font-weight:400;
+            color:var(--dim);
+            line-height:1.6;
+            max-width:620px;
         }
+        .cookie-text a { color:var(--red); text-decoration:none; cursor:pointer; }
+        .cookie-text a:hover { color:var(--rdbr); }
 
-        .cookie-text a {
-            color: var(--red);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .cookie-text a:hover {
-            color: var(--rdbr);
-        }
-
-        .cookie-btns {
-            display: flex;
-            gap: 10px;
-            flex-shrink: 0;
-        }
+        .cookie-btns { display:flex; gap:10px; flex-shrink:0; }
 
         .cbtn-a {
-            font-family: var(--mono);
-            font-size: .6rem;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: #080808;
-            background: var(--red);
-            border: none;
-            padding: 11px 24px;
-            cursor: pointer;
-            clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
-            transition: background .15s;
+            font-family:var(--mono);
+            font-size:.6rem;
+            letter-spacing:.16em;
+            text-transform:uppercase;
+            color:#080808;
+            background:var(--red);
+            border:none;
+            padding:11px 24px;
+            cursor:pointer;
+            clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+            transition:background .15s;
         }
-
-        .cbtn-a:hover {
-            background: var(--rdbr);
-        }
+        .cbtn-a:hover { background:var(--rdbr); }
 
         .cbtn-d {
-            font-family: var(--mono);
-            font-size: .6rem;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--dim);
-            background: none;
-            border: 1px solid var(--line2);
-            padding: 11px 24px;
-            cursor: pointer;
-            transition: color .15s, border-color .15s;
+            font-family:var(--mono);
+            font-size:.6rem;
+            letter-spacing:.16em;
+            text-transform:uppercase;
+            color:var(--dim);
+            background:none;
+            border:1px solid var(--line2);
+            padding:11px 24px;
+            cursor:pointer;
+            transition:color .15s,border-color .15s;
         }
+        .cbtn-d:hover { color:var(--w); border-color:rgba(255,255,255,.2); }
 
-        .cbtn-d:hover {
-            color: var(--w);
-            border-color: rgba(255, 255, 255, .2);
-        }
-
-        /* NAV */
+        /* ─── NAV ────────────────────────────────────── */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 200;
-            height: 64px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 56px;
-            background: rgba(8, 8, 8, 0.94);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(16px);
+            position:fixed;
+            top:0; left:0; right:0;
+            z-index:200;
+            height:64px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:0 56px;
+            background:rgba(8,8,8,.94);
+            border-bottom:1px solid var(--line);
+            backdrop-filter:blur(16px);
         }
 
         .nlogo {
-            font-family: var(--disp);
-            font-size: 1.5rem;
-            letter-spacing: .06em;
-            color: var(--w);
-            line-height: 1;
+            font-family:var(--disp);
+            font-size:1.5rem;
+            letter-spacing:.06em;
+            color:var(--w);
+            line-height:1;
         }
+        .nlogo em { color:var(--red); font-style:normal; }
 
-        .nlogo em {
-            color: var(--red);
-            font-style: normal;
-        }
-
-        .nlinks {
-            display: flex;
-            gap: 36px;
-            list-style: none;
-        }
-
+        .nlinks { display:flex; gap:36px; list-style:none; }
         .nlinks a {
-            font-family: var(--mono);
-            font-size: .65rem;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: var(--dim);
-            text-decoration: none;
-            transition: color .15s;
+            font-family:var(--mono);
+            font-size:.65rem;
+            letter-spacing:.22em;
+            text-transform:uppercase;
+            color:var(--dim);
+            text-decoration:none;
+            transition:color .15s;
         }
+        .nlinks a:hover { color:var(--w); }
 
-        .nlinks a:hover {
-            color: var(--w);
+        /* hamburger — hidden by default */
+        .n-hamburger {
+            display:none;
+            background:none;
+            border:1px solid var(--line2);
+            color:var(--dim);
+            font-family:var(--mono);
+            font-size:.6rem;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            padding:8px 16px;
+            cursor:pointer;
+            transition:color .15s,border-color .15s;
         }
+        .n-hamburger:hover { color:var(--w); border-color:rgba(255,255,255,.25); }
+
+        /* mobile nav drawer */
+        .n-drawer {
+            display:none;
+            position:fixed;
+            top:64px; left:0; right:0;
+            background:rgba(8,8,8,.98);
+            border-bottom:1px solid var(--line2);
+            backdrop-filter:blur(20px);
+            z-index:199;
+            padding:0;
+            flex-direction:column;
+            overflow:hidden;
+            max-height:0;
+            transition:max-height .35s cubic-bezier(.4,0,.2,1);
+        }
+        .n-drawer.open { max-height:400px; }
+        .n-drawer a {
+            display:block;
+            font-family:var(--mono);
+            font-size:.7rem;
+            letter-spacing:.22em;
+            text-transform:uppercase;
+            color:var(--dim);
+            text-decoration:none;
+            padding:18px 24px;
+            border-bottom:1px solid var(--line);
+            transition:color .15s,background .15s;
+        }
+        .n-drawer a:hover { color:var(--w); background:rgba(196,26,14,.06); }
+        .n-drawer .n-drawer-cta {
+            color:#080808;
+            background:var(--red);
+            margin:16px 24px 20px;
+            border-bottom:none;
+            text-align:center;
+            clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+        }
+        .n-drawer .n-drawer-cta:hover { background:var(--rdbr); color:#080808; }
 
         .ncta {
-            font-family: var(--mono);
-            font-size: .65rem;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: #080808;
-            background: var(--red);
-            border: none;
-            padding: 0 22px;
-            height: 38px;
-            cursor: pointer;
-            transition: background .15s;
-            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+            font-family:var(--mono);
+            font-size:.65rem;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            color:#080808;
+            background:var(--red);
+            border:none;
+            padding:0 22px;
+            height:38px;
+            cursor:pointer;
+            transition:background .15s;
+            clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
         }
+        .ncta:hover { background:var(--rdbr); }
 
-        .ncta:hover {
-            background: var(--rdbr);
-        }
-
-        /* HERO */
+        /* ─── HERO ───────────────────────────────────── */
         #hero {
-            position: relative;
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 480px;
-            align-items: end;
-            padding: 0 56px 80px;
-            overflow: hidden;
+            position:relative;
+            min-height:100vh;
+            display:grid;
+            grid-template-columns:1fr 480px;
+            align-items:end;
+            padding:0 56px 80px;
+            overflow:hidden;
         }
 
         .h-video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: .46;
-            transform: scale(1.03);
-            filter: brightness(.72) contrast(1.04) saturate(.92);
-            pointer-events: none;
+            position:absolute;
+            inset:0;
+            width:100%; height:100%;
+            object-fit:cover;
+            /* increased opacity: was .46 */
+            opacity:.68;
+            transform:scale(1.03);
+            filter:brightness(.78) contrast(1.04) saturate(.92);
+            pointer-events:none;
         }
 
         .h-vig {
-            position: absolute;
-            inset: 0;
+            position:absolute;
+            inset:0;
             background:
-                linear-gradient(to right, rgba(8, 8, 8, .82) 32%, rgba(8, 8, 8, .24) 66%, rgba(8, 8, 8, .56) 100%),
-                linear-gradient(to top, rgba(8, 8, 8, .62) 0%, rgba(8, 8, 8, .12) 42%, rgba(8, 8, 8, .22) 100%);
+                /* lighter than before — was .82/.24/.56 */
+                linear-gradient(to right,  rgba(8,8,8,.60) 28%, rgba(8,8,8,.15) 58%, rgba(8,8,8,.38) 100%),
+                linear-gradient(to top,    rgba(8,8,8,.55) 0%,  rgba(8,8,8,.08) 38%, rgba(8,8,8,.18) 100%);
         }
 
         .h-redline {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, transparent 0%, var(--red) 30%, var(--red) 70%, transparent 100%);
+            position:absolute;
+            left:0; top:0; bottom:0;
+            width:4px;
+            background:linear-gradient(to bottom,transparent 0%,var(--red) 30%,var(--red) 70%,transparent 100%);
         }
 
-        .h-left {
-            position: relative;
-            z-index: 2;
-        }
+        .h-left { position:relative; z-index:2; }
 
         .h-chip {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--mono);
-            font-size: .62rem;
-            letter-spacing: .26em;
-            text-transform: uppercase;
-            color: var(--red);
-            border: 1px solid rgba(196, 26, 14, .4);
-            padding: 6px 14px 6px 10px;
-            margin-bottom: 36px;
-            opacity: 0;
-            animation: up .6s .2s forwards;
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            font-family:var(--mono);
+            font-size:.62rem;
+            letter-spacing:.26em;
+            text-transform:uppercase;
+            color:var(--red);
+            border:1px solid rgba(196,26,14,.4);
+            padding:6px 14px 6px 10px;
+            margin-bottom:36px;
+            opacity:0;
+            animation:up .6s .2s forwards;
         }
-
-        .h-chip::before {
-            content: '▶';
-            font-size: .45rem;
-            margin-right: 2px;
-        }
+        .h-chip::before { content:'▶'; font-size:.45rem; margin-right:2px; }
 
         .h-title {
-            font-family: var(--disp);
-            font-size: clamp(72px, 10vw, 136px);
-            line-height: .88;
-            color: var(--w);
-            letter-spacing: -.01em;
-            opacity: 0;
-            animation: up .7s .35s forwards;
-        }
-
-        .h-title .accent {
-            color: transparent;
-            -webkit-text-stroke: 2px var(--red);
-            display: block;
+            font-family:var(--disp);
+            font-size:clamp(72px,10vw,136px);
+            line-height:.88;
+            color:var(--w);
+            letter-spacing:-.01em;
         }
 
         .h-rule {
-            width: 80px;
-            height: 3px;
-            background: var(--red);
-            margin: 36px 0;
-            opacity: 0;
-            animation: up .6s .55s forwards;
+            width:80px; height:3px;
+            background:var(--red);
+            margin:36px 0;
+            opacity:0;
+            animation:up .6s .55s forwards;
         }
 
         .h-sub {
-            font-family: var(--head);
-            font-size: 1.05rem;
-            font-weight: 400;
-            color: var(--mid);
-            max-width: 480px;
-            line-height: 1.7;
-            letter-spacing: .02em;
-            opacity: 0;
-            animation: up .6s .7s forwards;
+            font-family:var(--head);
+            font-size:1.05rem;
+            font-weight:400;
+            color:var(--mid);
+            max-width:480px;
+            line-height:1.7;
+            letter-spacing:.02em;
+            opacity:0;
+            animation:up .6s .7s forwards;
         }
 
         .h-btns {
-            display: flex;
-            gap: 12px;
-            margin-top: 44px;
-            opacity: 0;
-            animation: up .6s .85s forwards;
+            display:flex;
+            gap:12px;
+            margin-top:44px;
+            flex-wrap:wrap;
+            opacity:0;
+            animation:up .6s .85s forwards;
         }
 
         .btn-solid {
-            font-family: var(--mono);
-            font-size: .68rem;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: #080808;
-            background: var(--red);
-            padding: 15px 36px;
-            text-decoration: none;
-            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-            transition: background .15s;
+            font-family:var(--mono);
+            font-size:.68rem;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            color:#080808;
+            background:var(--red);
+            padding:15px 36px;
+            text-decoration:none;
+            clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+            transition:background .15s;
         }
-
-        .btn-solid:hover {
-            background: var(--rdbr);
-        }
+        .btn-solid:hover { background:var(--rdbr); }
 
         .btn-wire {
-            font-family: var(--mono);
-            font-size: .68rem;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: var(--dim);
-            border: 1px solid rgba(255, 255, 255, .1);
-            padding: 15px 36px;
-            text-decoration: none;
-            transition: color .15s, border-color .15s;
+            font-family:var(--mono);
+            font-size:.68rem;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            color:var(--dim);
+            border:1px solid rgba(255,255,255,.1);
+            padding:15px 36px;
+            text-decoration:none;
+            transition:color .15s,border-color .15s;
         }
-
-        .btn-wire:hover {
-            color: var(--w);
-            border-color: rgba(255, 255, 255, .3);
-        }
+        .btn-wire:hover { color:var(--w); border-color:rgba(255,255,255,.3); }
 
         .h-right {
-            position: relative;
-            z-index: 2;
-            border-left: 1px solid var(--line2);
-            padding-left: 48px;
-            opacity: 0;
-            animation: fadein .8s 1s forwards;
+            position:relative;
+            z-index:2;
+            border-left:1px solid var(--line2);
+            padding-left:48px;
+            opacity:0;
+            animation:fadein .8s 1s forwards;
         }
 
-        .hstat {
-            padding: 28px 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .hstat:first-child {
-            border-top: 1px solid var(--line);
-        }
+        .hstat { padding:28px 0; border-bottom:1px solid var(--line); }
+        .hstat:first-child { border-top:1px solid var(--line); }
 
         .hstat-n {
-            font-family: var(--disp);
-            font-size: 3.8rem;
-            color: var(--w);
-            line-height: .9;
+            font-family:var(--disp);
+            font-size:3.8rem;
+            color:var(--w);
+            line-height:.9;
         }
-
         .hstat-n sup {
-            font-family: var(--head);
-            font-size: 1.2rem;
-            color: var(--red);
-            vertical-align: super;
-            font-weight: 700;
+            font-family:var(--head);
+            font-size:1.2rem;
+            color:var(--red);
+            vertical-align:super;
+            font-weight:700;
         }
-
         .hstat-l {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-top: 6px;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.22em;
+            text-transform:uppercase;
+            color:var(--dim);
+            margin-top:6px;
         }
 
         @keyframes up {
-            from {
-                opacity: 0;
-                transform: translateY(22px);
-            }
-
-            to {
-                opacity: 1;
-                transform: none;
-            }
+            from { opacity:0; transform:translateY(22px); }
+            to   { opacity:1; transform:none; }
         }
+        @keyframes fadein { to { opacity:1; } }
 
-        @keyframes fadein {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* BAND */
+        /* ─── BAND ───────────────────────────────────── */
         .band {
-            background: var(--red);
-            padding: 16px 56px;
-            display: flex;
-            overflow: hidden;
+            background:var(--red);
+            padding:16px 56px;
+            display:flex;
+            overflow:hidden;
         }
-
         .band-inner {
-            display: flex;
-            gap: 56px;
-            white-space: nowrap;
-            animation: scroll 22s linear infinite;
-            flex-shrink: 0;
+            display:flex;
+            gap:56px;
+            white-space:nowrap;
+            animation:scroll 22s linear infinite;
+            flex-shrink:0;
         }
-
         .band-inner span {
-            font-family: var(--mono);
-            font-size: .62rem;
-            letter-spacing: .28em;
-            text-transform: uppercase;
-            color: #080808;
-            font-weight: 500;
+            font-family:var(--mono);
+            font-size:.62rem;
+            letter-spacing:.28em;
+            text-transform:uppercase;
+            color:#080808;
+            font-weight:500;
         }
+        .band-sep { color:rgba(8,8,8,.4) !important; }
+        @keyframes scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 
-        .band-sep {
-            color: rgba(8, 8, 8, .4) !important;
-        }
-
-        @keyframes scroll {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* SECTIONS */
-        .s {
-            padding: 100px 56px;
-        }
-
-        .s2 {
-            background: var(--bg2);
-        }
+        /* ─── SECTIONS ───────────────────────────────── */
+        .s  { padding:100px 56px; }
+        .s2 { background:var(--bg2); }
 
         .lbl {
-            font-family: var(--mono);
-            font-size: .6rem;
-            letter-spacing: .3em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-family:var(--mono);
+            font-size:.6rem;
+            letter-spacing:.3em;
+            text-transform:uppercase;
+            color:var(--red);
+            margin-bottom:14px;
+            display:flex;
+            align-items:center;
+            gap:10px;
         }
-
-        .lbl::before {
-            content: '';
-            display: block;
-            width: 28px;
-            height: 2px;
-            background: var(--red);
-        }
+        .lbl::before { content:''; display:block; width:28px; height:2px; background:var(--red); }
 
         .sh {
-            font-family: var(--disp);
-            font-size: clamp(44px, 6.5vw, 88px);
-            line-height: .9;
-            color: var(--w);
-            letter-spacing: .01em;
+            font-family:var(--disp);
+            font-size:clamp(44px,6.5vw,88px);
+            line-height:.9;
+            color:var(--w);
+            letter-spacing:.01em;
         }
-
-        .sh .dim {
-            color: transparent;
-            -webkit-text-stroke: 1.5px rgba(255, 255, 255, .15);
-        }
+        .sh .dim { color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,.15); }
 
         body p.lead {
-            font-family: var(--head);
-            font-size: .96rem;
-            font-weight: 400;
-            color: var(--mid);
-            line-height: 1.8;
-            letter-spacing: .02em;
+            font-family:var(--head);
+            font-size:.96rem;
+            font-weight:400;
+            color:var(--mid);
+            line-height:1.8;
+            letter-spacing:.02em;
         }
 
-        /* ═══════════════════════════════════
-           SERVICES — IMPROVED 5-CARD LAYOUT
-           Featured card (01) spans 2 rows on the left.
-           Cards 02-03 fill row 1 right cols.
-           Cards 04-05 fill row 2 right cols.
-        ═══════════════════════════════════ */
+        /* ─── SERVICES ───────────────────────────────── */
         .svc-head {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: end;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:end;
         }
 
         .svc-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr 1fr;
-            grid-template-rows: auto auto;
-            border-top: 2px solid var(--red);
-            margin-top: 56px;
+            display:grid;
+            grid-template-columns:1.3fr 1fr 1fr;
+            grid-template-rows:auto auto;
+            border-top:2px solid var(--red);
+            margin-top:56px;
         }
 
         .svc {
-            padding: 44px 36px 40px;
-            border-right: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-            position: relative;
-            overflow: hidden;
-            transition: background .2s;
+            padding:44px 36px 40px;
+            border-right:1px solid var(--line);
+            border-bottom:1px solid var(--line);
+            position:relative;
+            overflow:hidden;
+            transition:background .2s;
         }
 
-        /* Card 01: featured, spans 2 rows */
         .svc:first-child {
-            grid-row: span 2;
-            border-bottom: none;
-            padding: 56px 44px 56px;
-            background: linear-gradient(160deg, rgba(196, 26, 14, .06) 0%, transparent 60%);
+            grid-row:span 2;
+            border-bottom:none;
+            padding:56px 44px;
+            background:linear-gradient(160deg,rgba(196,26,14,.06) 0%,transparent 60%);
         }
+        .svc:first-child .svc-name { font-size:2.1rem; margin-bottom:22px; }
+        .svc:first-child .svc-desc { font-size:.92rem; line-height:1.9; }
 
-        .svc:first-child .svc-name {
-            font-size: 2.1rem;
-            margin-bottom: 22px;
-        }
-
-        .svc:first-child .svc-desc {
-            font-size: .92rem;
-            line-height: 1.9;
-        }
-
-        /* Ghost number watermark on featured card */
         .svc:first-child .svc-ghost {
-            position: absolute;
-            bottom: 24px;
-            right: 28px;
-            font-family: var(--disp);
-            font-size: 9rem;
-            color: rgba(196, 26, 14, .06);
-            line-height: 1;
-            pointer-events: none;
-            user-select: none;
+            position:absolute;
+            bottom:24px; right:28px;
+            font-family:var(--disp);
+            font-size:9rem;
+            color:rgba(196,26,14,.06);
+            line-height:1;
+            pointer-events:none;
+            user-select:none;
         }
-
-        /* Red left accent bar on featured card */
         .svc:first-child::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--red), transparent);
+            content:'';
+            position:absolute;
+            top:0; left:0; bottom:0;
+            width:3px;
+            background:linear-gradient(to bottom,var(--red),transparent);
         }
 
-        /* Remove right border from last column */
-        .svc:nth-child(3),
-        .svc:nth-child(5) {
-            border-right: none;
-        }
+        .svc:nth-child(3),.svc:nth-child(5) { border-right:none; }
+        .svc:nth-child(4),.svc:nth-child(5) { border-bottom:none; }
 
-        /* Remove bottom border from last row */
-        .svc:nth-child(4),
-        .svc:nth-child(5) {
-            border-bottom: none;
-        }
-
-        .svc:hover {
-            background: rgba(196, 26, 14, .05);
-        }
+        .svc:hover { background:rgba(196,26,14,.05); }
 
         .svc-hover-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--red);
-            transition: width .35s;
+            position:absolute;
+            bottom:0; left:0;
+            width:0; height:2px;
+            background:var(--red);
+            transition:width .35s;
         }
-
-        .svc:hover .svc-hover-bar {
-            width: 100%;
-        }
+        .svc:hover .svc-hover-bar { width:100%; }
 
         .svc-idx {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .24em;
-            color: var(--dim);
-            margin-bottom: 24px;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.24em;
+            color:var(--dim);
+            margin-bottom:24px;
         }
-
         .svc-name {
-            font-family: var(--disp);
-            font-size: 1.55rem;
-            color: var(--w);
-            line-height: 1.05;
-            margin-bottom: 16px;
+            font-family:var(--disp);
+            font-size:1.55rem;
+            color:var(--w);
+            line-height:1.05;
+            margin-bottom:16px;
         }
-
         .svc-desc {
-            font-family: var(--head);
-            font-size: .86rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.75;
+            font-family:var(--head);
+            font-size:.86rem;
+            font-weight:400;
+            color:var(--dim);
+            line-height:1.75;
         }
 
-        /* ABOUT */
+        /* ─── ABOUT ──────────────────────────────────── */
         #about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            padding: 0;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:0;
+            padding:0;
         }
-
         .ab-img {
-            position: relative;
-            min-height: 680px;
-            overflow: hidden;
+            position:relative;
+            min-height:680px;
+            overflow:hidden;
         }
-
         .ab-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            filter: grayscale(25%) contrast(1.08) brightness(.78);
-            transition: transform 8s ease;
+            width:100%; height:100%;
+            object-fit:cover;
+            display:block;
+            filter:grayscale(25%) contrast(1.08) brightness(.78);
+            transition:transform 8s ease;
         }
-
-        #about:hover .ab-img img {
-            transform: scale(1.04);
-        }
-
+        #about:hover .ab-img img { transform:scale(1.04); }
         .ab-img::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 6px;
-            background: var(--red);
+            content:'';
+            position:absolute;
+            left:0; top:0; bottom:0;
+            width:6px;
+            background:var(--red);
         }
-
         .ab-copy {
-            padding: 80px 64px;
-            border-left: 1px solid var(--line);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: var(--bg2);
+            padding:80px 64px;
+            border-left:1px solid var(--line);
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            background:var(--bg2);
         }
-
         .ab-copy p {
-            font-family: var(--head);
-            font-size: .94rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.85;
-            margin-top: 24px;
+            font-family:var(--head);
+            font-size:.94rem;
+            font-weight:400;
+            color:var(--dim);
+            line-height:1.85;
+            margin-top:24px;
         }
+        .ab-copy strong { color:var(--w); font-weight:600; }
 
-        .ab-copy strong {
-            color: var(--w);
-            font-weight: 600;
-        }
-
-        .certs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 36px;
-        }
-
+        .certs { display:flex; flex-wrap:wrap; gap:8px; margin-top:36px; }
         .cert {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--dim);
-            border: 1px solid var(--line2);
-            padding: 7px 14px;
-            clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
-            transition: color .2s, border-color .2s;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.16em;
+            text-transform:uppercase;
+            color:var(--dim);
+            border:1px solid var(--line2);
+            padding:7px 14px;
+            clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
+            transition:color .2s,border-color .2s;
         }
+        .cert:hover { color:var(--w); border-color:rgba(255,255,255,.25); }
 
-        .cert:hover {
-            color: var(--w);
-            border-color: rgba(255, 255, 255, .25);
-        }
-
-        /* FLEET */
+        /* ─── FLEET ──────────────────────────────────── */
         .fleet-head {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: end;
-            margin-bottom: 56px;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:end;
+            margin-bottom:56px;
         }
-
         .fleet-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border-top: 2px solid var(--red);
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            border-top:2px solid var(--red);
         }
-
         .fcard {
-            padding: 40px 32px;
-            border-right: 1px solid var(--line);
-            transition: background .2s;
-            position: relative;
+            padding:40px 32px;
+            border-right:1px solid var(--line);
+            transition:background .2s;
+            position:relative;
         }
-
-        .fcard:last-child {
-            border-right: none;
-        }
-
-        .fcard:hover {
-            background: rgba(196, 26, 14, .05);
-        }
-
+        .fcard:last-child { border-right:none; }
+        .fcard:hover { background:rgba(196,26,14,.05); }
         .fcard::before {
-            content: attr(data-n);
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            font-family: var(--disp);
-            font-size: 4rem;
-            color: rgba(255, 255, 255, .03);
-            line-height: 1;
+            content:attr(data-n);
+            position:absolute;
+            top:16px; right:20px;
+            font-family:var(--disp);
+            font-size:4rem;
+            color:rgba(255,255,255,.03);
+            line-height:1;
         }
-
         .fcat {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 12px;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.22em;
+            text-transform:uppercase;
+            color:var(--red);
+            margin-bottom:12px;
         }
-
-        .fname {
-            font-family: var(--disp);
-            font-size: 1.4rem;
-            color: var(--w);
-            margin-bottom: 12px;
-            line-height: 1.1;
-        }
-
+        .fname { font-family:var(--disp); font-size:1.4rem; color:var(--w); margin-bottom:12px; line-height:1.1; }
         .fmodels {
-            font-family: var(--head);
-            font-size: .82rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.65;
+            font-family:var(--head);
+            font-size:.82rem;
+            font-weight:400;
+            color:var(--dim);
+            line-height:1.65;
         }
 
-        /* OIL */
-        .shop-head {
-            max-width: 480px;
-        }
+        /* ─── OIL PRODUCTS ───────────────────────────── */
+        .shop-head { max-width:480px; }
 
         .oil-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            border-top: 2px solid var(--red);
-            padding-top: 0;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:32px;
+            border-top:2px solid var(--red);
         }
-
         .oil-card {
-            border: 1px solid var(--line2);
-            background: var(--bg2);
-            overflow: hidden;
-            transition: border-color .25s, background .25s;
-            position: relative;
+            border:1px solid var(--line2);
+            background:var(--bg2);
+            overflow:hidden;
+            transition:border-color .25s,background .25s;
+            position:relative;
         }
-
-        .oil-card:hover {
-            border-color: rgba(196, 26, 14, .45);
-            background: var(--bg3);
-        }
+        .oil-card:hover { border-color:rgba(196,26,14,.45); background:var(--bg3); }
 
         .oil-img-wrap {
-            position: relative;
-            width: 100%;
-            background: #0d0d0d;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 120px;
-            overflow: hidden;
+            position:relative;
+            width:100%;
+            background:#0d0d0d;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-height:120px;
+            overflow:hidden;
         }
-
         .oil-img-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            filter: brightness(.93) contrast(1.04);
-            transition: transform .6s ease;
+            width:100%; height:auto;
+            display:block;
+            object-fit:contain;
+            filter:brightness(.93) contrast(1.04);
+            transition:transform .6s ease;
         }
-
-        .oil-img-wrap.img-err {
-            height: 200px;
-            background: repeating-linear-gradient(45deg, #0d0d0d, #0d0d0d 10px, #111 10px, #111 20px);
-        }
-
-        .oil-card:hover .oil-img-wrap img {
-            transform: scale(1.04);
-        }
+        .oil-img-wrap.img-err { height:200px; background:repeating-linear-gradient(45deg,#0d0d0d,#0d0d0d 10px,#111 10px,#111 20px); }
+        .oil-card:hover .oil-img-wrap img { transform:scale(1.04); }
 
         .oil-badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            font-family: var(--mono);
-            font-size: .52rem;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: #080808;
-            background: var(--red);
-            padding: 5px 12px;
-            clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+            position:absolute;
+            top:16px; left:16px;
+            font-family:var(--mono);
+            font-size:.52rem;
+            letter-spacing:.22em;
+            text-transform:uppercase;
+            color:#080808;
+            background:var(--red);
+            padding:5px 12px;
+            clip-path:polygon(0 0,calc(100% - 6px) 0,100% 6px,100% 100%,6px 100%,0 calc(100% - 6px));
         }
+        .oil-badge-alt { background:var(--w); color:#080808; }
 
-        .oil-badge-alt {
-            background: var(--w);
-            color: #080808;
-        }
-
-        .oil-body {
-            padding: 32px 36px 36px;
-        }
-
+        .oil-body { padding:32px 36px 36px; }
         .oil-brand {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .28em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 6px;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.28em;
+            text-transform:uppercase;
+            color:var(--red);
+            margin-bottom:6px;
         }
-
-        .oil-name {
-            font-family: var(--disp);
-            font-size: 2rem;
-            color: var(--w);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
+        .oil-name { font-family:var(--disp); font-size:2rem; color:var(--w); line-height:1; margin-bottom:10px; }
         .oil-spec {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-bottom: 18px;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.14em;
+            text-transform:uppercase;
+            color:var(--dim);
+            margin-bottom:18px;
         }
-
-        .oil-desc {
-            font-family: var(--head);
-            font-size: .86rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.78;
-            margin-bottom: 22px;
-        }
-
-        .oil-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 28px;
-        }
-
+        .oil-desc { font-family:var(--head); font-size:.86rem; font-weight:400; color:var(--dim); line-height:1.78; margin-bottom:22px; }
+        .oil-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
         .oil-tag {
-            font-family: var(--mono);
-            font-size: .54rem;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--dim);
-            border: 1px solid var(--line2);
-            padding: 5px 12px;
+            font-family:var(--mono);
+            font-size:.54rem;
+            letter-spacing:.14em;
+            text-transform:uppercase;
+            color:var(--dim);
+            border:1px solid var(--line2);
+            padding:5px 12px;
         }
-
         .oil-btn {
-            display: inline-block;
-            font-family: var(--mono);
-            font-size: .65rem;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            color: #080808;
-            background: var(--red);
-            padding: 13px 28px;
-            text-decoration: none;
-            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-            transition: background .15s;
+            display:inline-block;
+            font-family:var(--mono);
+            font-size:.65rem;
+            letter-spacing:.18em;
+            text-transform:uppercase;
+            color:#080808;
+            background:var(--red);
+            padding:13px 28px;
+            text-decoration:none;
+            clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+            transition:background .15s;
         }
+        .oil-btn:hover { background:var(--rdbr); }
 
-        .oil-btn:hover {
-            background: var(--rdbr);
-        }
-
-        @media(max-width:1024px) {
-            .oil-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* PROCESS */
+        /* ─── PROCESS ────────────────────────────────── */
         .proc-intro {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: end;
-            margin-bottom: 60px;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:end;
+            margin-bottom:60px;
         }
-
-        .proc-list {
-            border-top: 1px solid var(--line2);
-        }
-
+        .proc-list { border-top:1px solid var(--line2); }
         .proc-row {
-            display: grid;
-            grid-template-columns: 96px 1fr;
-            align-items: stretch;
-            border-bottom: 1px solid var(--line);
-            transition: background .2s;
+            display:grid;
+            grid-template-columns:96px 1fr;
+            align-items:stretch;
+            border-bottom:1px solid var(--line);
+            transition:background .2s;
         }
-
-        .proc-row:hover {
-            background: rgba(255, 255, 255, .02);
-        }
+        .proc-row:hover { background:rgba(255,255,255,.02); }
 
         .proc-n {
-            font-family: var(--disp);
-            font-size: 2.2rem;
-            color: var(--red);
-            padding: 36px 0;
-            border-right: 1px solid var(--line);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            letter-spacing: .04em;
+            font-family:var(--disp);
+            font-size:2.2rem;
+            color:var(--red);
+            padding:36px 0;
+            border-right:1px solid var(--line);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            letter-spacing:.04em;
         }
+        .proc-body { padding:36px 40px; }
+        .proc-title { font-family:var(--disp); font-size:1.4rem; color:var(--w); letter-spacing:.04em; margin-bottom:10px; }
+        .proc-desc { font-family:var(--head); font-size:.86rem; font-weight:400; color:var(--dim); line-height:1.75; max-width:600px; }
 
-        .proc-body {
-            padding: 36px 40px;
-        }
-
-        .proc-title {
-            font-family: var(--disp);
-            font-size: 1.4rem;
-            color: var(--w);
-            letter-spacing: .04em;
-            margin-bottom: 10px;
-        }
-
-        .proc-desc {
-            font-family: var(--head);
-            font-size: .86rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.75;
-            max-width: 600px;
-        }
-
-        /* QUOTES */
-        #quotes {
-            background: var(--bg3);
-        }
-
+        /* ─── QUOTES ─────────────────────────────────── */
+        #quotes { background:var(--bg3); }
         .q-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            border-top: 2px solid var(--red);
-            margin-top: 56px;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            border-top:2px solid var(--red);
+            margin-top:56px;
         }
+        .qcard { padding:48px 40px; border-right:1px solid var(--line); transition:background .2s; }
+        .qcard:last-child { border-right:none; }
+        .qcard:hover { background:rgba(196,26,14,.04); }
 
-        .qcard {
-            padding: 48px 40px;
-            border-right: 1px solid var(--line);
-            transition: background .2s;
-        }
+        .qmark { font-family:var(--disp); font-size:5rem; color:var(--red); line-height:.7; margin-bottom:20px; opacity:.8; }
+        .qtext { font-family:var(--head); font-size:.9rem; font-weight:400; color:var(--mid); line-height:1.8; font-style:italic; margin-bottom:32px; }
+        .qline { width:36px; height:2px; background:var(--red); margin-bottom:18px; }
+        .qwho { font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--w); }
+        .qrole { font-family:var(--mono); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--dim); margin-top:4px; }
 
-        .qcard:last-child {
-            border-right: none;
-        }
-
-        .qcard:hover {
-            background: rgba(196, 26, 14, .04);
-        }
-
-        .qmark {
-            font-family: var(--disp);
-            font-size: 5rem;
-            color: var(--red);
-            line-height: .7;
-            margin-bottom: 20px;
-            opacity: .8;
-        }
-
-        .qtext {
-            font-family: var(--head);
-            font-size: .9rem;
-            font-weight: 400;
-            color: var(--mid);
-            line-height: 1.8;
-            font-style: italic;
-            margin-bottom: 32px;
-        }
-
-        .qline {
-            width: 36px;
-            height: 2px;
-            background: var(--red);
-            margin-bottom: 18px;
-        }
-
-        .qwho {
-            font-family: var(--mono);
-            font-size: .62rem;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--w);
-        }
-
-        .qrole {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-top: 4px;
-        }
-
-        /* CONTACT */
-        #contact {
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
+        /* ─── CONTACT ────────────────────────────────── */
+        #contact { padding:0; display:grid; grid-template-columns:1fr 1fr; }
 
         .ct-left {
-            padding: 80px 56px;
-            background: var(--bg2);
-            border-right: 1px solid var(--line);
+            padding:80px 56px;
+            background:var(--bg2);
+            border-right:1px solid var(--line);
         }
+        .ct-left p { font-family:var(--head); font-size:.94rem; font-weight:400; color:var(--dim); line-height:1.8; max-width:380px; margin-top:24px; }
 
-        .ct-left p {
-            font-family: var(--head);
-            font-size: .94rem;
-            font-weight: 400;
-            color: var(--dim);
-            line-height: 1.8;
-            max-width: 380px;
-            margin-top: 24px;
-        }
+        .ct-meta { margin-top:48px; }
+        .ct-row { padding:20px 0; border-bottom:1px solid var(--line); }
+        .ct-row:first-child { border-top:1px solid var(--line); }
+        .ct-lbl { font-family:var(--mono); font-size:.58rem; letter-spacing:.24em; text-transform:uppercase; color:var(--red); margin-bottom:6px; }
+        .ct-val { font-family:var(--head); font-size:.9rem; font-weight:400; color:var(--w); line-height:1.6; }
+        .ct-val a { color:var(--w); text-decoration:none; border-bottom:1px solid rgba(196,26,14,.5); }
+        .ct-val a:hover { color:var(--rdbr); }
 
-        .ct-meta {
-            margin-top: 48px;
-        }
-
-        .ct-row {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .ct-row:first-child {
-            border-top: 1px solid var(--line);
-        }
-
-        .ct-lbl {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .24em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 6px;
-        }
-
-        .ct-val {
-            font-family: var(--head);
-            font-size: .9rem;
-            font-weight: 400;
-            color: var(--w);
-            line-height: 1.6;
-        }
-
-        .ct-val a {
-            color: var(--w);
-            text-decoration: none;
-            border-bottom: 1px solid rgba(196, 26, 14, .5);
-        }
-
-        .ct-val a:hover {
-            color: var(--rdbr);
-        }
-
-        .ct-right {
-            padding: 80px 56px;
-            background: var(--bg);
-        }
+        .ct-right { padding:80px 56px; background:var(--bg); }
 
         .fl {
-            display: block;
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .2em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-bottom: 8px;
+            display:block;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.2em;
+            text-transform:uppercase;
+            color:var(--dim);
+            margin-bottom:8px;
         }
-
-        .fi,
-        .fta {
-            width: 100%;
-            background: rgba(255, 255, 255, .03);
-            border: 1px solid var(--line);
-            border-left: 2px solid transparent;
-            padding: 13px 16px;
-            color: var(--w);
-            font-family: var(--head);
-            font-size: .9rem;
-            font-weight: 400;
-            outline: none;
-            margin-bottom: 22px;
-            transition: border-color .2s, background .2s;
+        .fi,.fta {
+            width:100%;
+            background:rgba(255,255,255,.03);
+            border:1px solid var(--line);
+            border-left:2px solid transparent;
+            padding:13px 16px;
+            color:var(--w);
+            font-family:var(--head);
+            font-size:.9rem;
+            font-weight:400;
+            outline:none;
+            margin-bottom:22px;
+            transition:border-color .2s,background .2s;
         }
-
-        .fi:focus,
-        .fta:focus {
-            border-color: rgba(255, 255, 255, .12);
-            border-left-color: var(--red);
-            background: rgba(255, 255, 255, .05);
+        .fi:focus,.fta:focus {
+            border-color:rgba(255,255,255,.12);
+            border-left-color:var(--red);
+            background:rgba(255,255,255,.05);
         }
-
-        .fta {
-            resize: vertical;
-            min-height: 110px;
-        }
+        .fta { resize:vertical; min-height:110px; }
 
         .fsub {
-            width: 100%;
-            font-family: var(--mono);
-            font-size: .68rem;
-            letter-spacing: .2em;
-            text-transform: uppercase;
-            color: #080808;
-            background: var(--red);
-            border: none;
-            padding: 17px;
-            cursor: pointer;
-            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-            transition: background .15s;
+            width:100%;
+            font-family:var(--mono);
+            font-size:.68rem;
+            letter-spacing:.2em;
+            text-transform:uppercase;
+            color:#080808;
+            background:var(--red);
+            border:none;
+            padding:17px;
+            cursor:pointer;
+            clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+            transition:background .15s;
         }
+        .fsub:hover { background:var(--rdbr); }
 
-        .fsub:hover {
-            background: var(--rdbr);
-        }
-
-        /* FOOTER */
+        /* ─── FOOTER ─────────────────────────────────── */
         footer {
-            background: #050505;
-            border-top: 1px solid var(--line);
-            padding: 28px 56px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background:#050505;
+            border-top:1px solid var(--line);
+            padding:28px 56px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
         }
-
-        .flogo {
-            font-family: var(--disp);
-            font-size: 1.1rem;
-            letter-spacing: .06em;
-            color: var(--w);
-        }
-
-        .flogo em {
-            color: var(--red);
-            font-style: normal;
-        }
-
-        .fcopy {
-            font-family: var(--mono);
-            font-size: .56rem;
-            letter-spacing: .14em;
-            color: var(--dim);
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        .fnav {
-            display: flex;
-            gap: 24px;
-        }
-
+        .flogo { font-family:var(--disp); font-size:1.1rem; letter-spacing:.06em; color:var(--w); }
+        .flogo em { color:var(--red); font-style:normal; }
+        .fcopy { font-family:var(--mono); font-size:.56rem; letter-spacing:.14em; color:var(--dim); text-align:center; line-height:1.8; }
+        .fnav { display:flex; gap:24px; }
         .fnav a {
-            font-family: var(--mono);
-            font-size: .58rem;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--dim);
-            text-decoration: none;
-            cursor: pointer;
-            transition: color .15s;
+            font-family:var(--mono);
+            font-size:.58rem;
+            letter-spacing:.16em;
+            text-transform:uppercase;
+            color:var(--dim);
+            text-decoration:none;
+            cursor:pointer;
+            transition:color .15s;
+        }
+        .fnav a:hover { color:var(--w); }
+
+        /* ─── REVEAL ─────────────────────────────────── */
+        .rv { opacity:0; transform:translateY(16px); transition:opacity .6s,transform .6s; }
+        .rv.in { opacity:1; transform:none; }
+
+        /* ─── HERO TITLE SLIDE-UP PER RIGA ──────────── */
+        .h-title-line {
+            overflow:hidden;
+            display:block;
+            /* padding gives room above/below so ascenders & stroke aren't clipped */
+            padding-top:.12em;
+            padding-bottom:.08em;
+            margin-top:-.12em;   /* cancel the padding-top so spacing stays tight */
+        }
+        .h-title-word {
+            display:block;
+            transform:translateY(108%);
+            transition:transform .9s cubic-bezier(.16,1,.3,1);
+        }
+        .h-title-word.show { transform:translateY(0); }
+        .h-title-word.accent {
+            color:transparent;
+            -webkit-text-stroke:2px var(--red);
         }
 
-        .fnav a:hover {
-            color: var(--w);
+        /* hero chip / rule / sub / btns già con @keyframes up — ok */
+
+        /* ─── SECTION HEADING WORD SPLIT ─────────────── */
+        .sh-wrap { display:block; }
+        .sh .wl  { display:block; overflow:hidden; line-height:.95; }
+        .sh .wl > span {
+            display:block;
+            transform:translateY(110%);
+            transition:transform .85s cubic-bezier(.16,1,.3,1);
+        }
+        /* dim ghost lines inherit color from original span.dim */
+        .sh .wl > span .dim {
+            color:transparent;
+            -webkit-text-stroke:1.5px rgba(255,255,255,.15);
         }
 
-        /* REVEAL */
-        .rv {
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity .6s, transform .6s;
+        /* ─── LABEL SLIDE-IN ─────────────────────────── */
+        .lbl-wrap { overflow:hidden; }
+        .lbl.lbl-anim {
+            opacity:0;
+            transform:translateX(-18px);
+            transition:opacity .6s, transform .6s cubic-bezier(.16,1,.3,1);
+        }
+        .lbl.lbl-anim.lbl-in { opacity:1; transform:translateX(0); }
+
+        /* ─── MANIFESTO SECTION ──────────────────────── */
+        #manifesto {
+            min-height:52vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:clamp(5rem,10vw,10rem) clamp(2rem,6vw,8rem);
+            background:var(--bg);
+            border-top:1px solid var(--line);
+            border-bottom:1px solid var(--line2);
+            text-align:center;
+            position:relative;
+            overflow:hidden;
+        }
+        #manifesto::before {
+            content:'';
+            position:absolute;
+            left:50%; top:0;
+            transform:translateX(-50%);
+            width:1px; height:100%;
+            background:linear-gradient(to bottom,transparent,rgba(196,26,14,.35) 40%,rgba(196,26,14,.35) 60%,transparent);
+            pointer-events:none;
+        }
+        .man-inner { max-width:860px; }
+
+        .man-lead {
+            font-family:var(--mono);
+            font-size:.62rem;
+            letter-spacing:.3em;
+            text-transform:uppercase;
+            color:var(--red);
+            margin-bottom:28px;
+            opacity:0;
+            transform:translateY(10px);
+            transition:opacity .7s .1s, transform .7s .1s cubic-bezier(.16,1,.3,1);
+        }
+        .man-lead.show { opacity:1; transform:translateY(0); }
+
+        .man-text {
+            font-family:var(--disp);
+            font-size:clamp(2rem,4.5vw,5rem);
+            line-height:1.0;
+            color:var(--w);
+            letter-spacing:.01em;
+        }
+        .man-text .word {
+            display:inline-block;
+            overflow:hidden;
+            vertical-align:bottom;
+        }
+        .man-text .word span {
+            display:inline-block;
+            transform:translateY(108%);
+            transition:transform .75s cubic-bezier(.16,1,.3,1);
+        }
+        .man-text .word.show span { transform:translateY(0); }
+        .man-text .word.red span  { color:var(--red); }
+
+        .man-sub {
+            margin-top:36px;
+            font-family:var(--mono);
+            font-size:.6rem;
+            letter-spacing:.26em;
+            text-transform:uppercase;
+            color:var(--dim);
+            opacity:0;
+            transition:opacity .8s .8s;
+        }
+        .man-sub.show { opacity:1; }
+
+        @media(max-width:640px) {
+            #manifesto { min-height:auto; padding:4rem 16px; }
+            .man-text { font-size:clamp(1.6rem,9vw,2.8rem); }
+            .man-lead { font-size:.55rem; }
         }
 
-        .rv.in {
-            opacity: 1;
-            transform: none;
+        /* ─── RESPONSIVE ─────────────────────────────── */
+
+        /* Tablet landscape 1200 */
+        @media(max-width:1200px) {
+            nav { padding:0 28px; }
+            .s,.s2 { padding:80px 28px; }
+            #hero { padding:0 28px 72px; }
+            .ct-left,.ct-right { padding:64px 36px; }
+            footer { padding:24px 28px; }
+            .band { padding:16px 28px; }
+            .cookie-bar { padding:18px 28px; }
+
+            .svc-grid { grid-template-columns:1fr 1fr; }
+            .svc:first-child { grid-row:span 2; }
+            .svc:nth-child(3) { border-right:none; }
+            .svc:nth-child(5) { border-right:none; }
+            .svc:nth-child(4) { border-bottom:1px solid var(--line); }
+
+            .fleet-grid { grid-template-columns:repeat(2,1fr); }
+            .fcard:nth-child(2) { border-right:none; }
+            .fcard:nth-child(3) { border-right:1px solid var(--line); }
+            .fcard:nth-child(4) { border-right:none; border-top:1px solid var(--line); }
+            .fcard:nth-child(3) { border-top:1px solid var(--line); }
         }
 
-        /* RESPONSIVE */
+        /* Tablet portrait 1024 */
         @media(max-width:1024px) {
-            nav {
-                padding: 0 20px;
-            }
+            .nlinks { display:none; }
+            .ncta   { display:none; }
+            .n-hamburger { display:block; }
+            .n-drawer    { display:flex; }
 
-            .nlinks {
-                display: none;
-            }
+            #hero { grid-template-columns:1fr; }
+            .h-right { display:none; }
 
-            .s,
-            .s2 {
-                padding: 64px 20px;
-            }
+            .svc-head,.fleet-head,.proc-intro { grid-template-columns:1fr; gap:24px; }
+            .svc-grid { grid-template-columns:1fr; margin-top:40px; }
+            .svc:first-child { grid-row:span 1; border-bottom:1px solid var(--line); }
+            .svc:first-child::before { display:none; }
+            .svc { border-right:none; }
+            .svc:nth-child(3),.svc:nth-child(5) { border-right:none; }
+            .svc:nth-child(4),.svc:nth-child(5) { border-bottom:1px solid var(--line); }
+            .svc:last-child { border-bottom:none; }
+
+            #about { grid-template-columns:1fr; }
+            .ab-img { min-height:320px; }
+            .ab-copy { padding:48px 28px; border-left:none; border-top:1px solid var(--line); }
+
+            .fleet-grid { grid-template-columns:1fr 1fr; }
+            .fcard:nth-child(2) { border-right:none; }
+            .fcard:nth-child(3) { border-right:1px solid var(--line); border-top:1px solid var(--line); }
+            .fcard:nth-child(4) { border-right:none; border-top:1px solid var(--line); }
+
+            .oil-grid { grid-template-columns:1fr; }
+
+            .q-grid { grid-template-columns:1fr; }
+            .qcard { border-right:none; border-bottom:1px solid var(--line); }
+            .qcard:last-child { border-bottom:none; }
+
+            #contact { grid-template-columns:1fr; }
+            .ct-left,.ct-right { padding:56px 28px; }
+            .ct-left { border-right:none; border-bottom:1px solid var(--line); }
+
+            footer { flex-direction:column; gap:16px; padding:20px 28px; text-align:center; }
+            .fnav { flex-wrap:wrap; justify-content:center; gap:16px; }
+
+            .cookie-bar { padding:16px 20px; flex-direction:column; align-items:flex-start; }
+            .modal-box { padding:36px 24px; }
+
+            .proc-row { grid-template-columns:72px 1fr; }
+            .proc-n { font-size:1.8rem; }
+        }
+
+        /* Mobile 640 */
+        @media(max-width:640px) {
+            nav { height:56px; padding:0 16px; }
+            .nlogo { font-size:1.2rem; }
+            .n-drawer { top:56px; }
+            .n-hamburger { padding:6px 12px; font-size:.55rem; }
+
+            .s,.s2 { padding:56px 16px; }
+            .band  { padding:14px 16px; }
 
             #hero {
-                grid-template-columns: 1fr;
-                padding: 0 20px 60px;
+                min-height:100svh;
+                padding:0 16px 56px;
+                align-items:end;
             }
 
-            .h-right {
-                display: none;
-            }
+            .h-chip { font-size:.52rem; letter-spacing:.18em; margin-bottom:24px; padding:5px 10px; }
+            .h-title { font-size:clamp(52px,15vw,80px); }
+            .h-title .accent { -webkit-text-stroke-width:1.5px; }
+            .h-rule { width:52px; margin:24px 0; }
+            .h-sub { font-size:.88rem; max-width:100%; }
+            .h-btns { margin-top:28px; gap:10px; }
+            .btn-solid,.btn-wire { padding:13px 24px; font-size:.6rem; }
 
-            .svc-head,
-            .fleet-head,
-            .proc-intro {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+            .sh { font-size:clamp(38px,10vw,56px); }
 
-            .svc-grid {
-                grid-template-columns: 1fr;
-            }
+            .svc { padding:32px 20px 28px; }
+            .svc:first-child { padding:36px 24px; }
+            .svc:first-child .svc-name { font-size:1.7rem; }
+            .svc-name { font-size:1.3rem; }
 
-            .svc:first-child {
-                grid-row: span 1;
-                border-bottom: 1px solid var(--line);
-            }
+            .ab-img { min-height:240px; }
+            .ab-copy { padding:40px 16px; }
+            .ab-copy p { font-size:.88rem; margin-top:18px; }
 
-            .svc:first-child::before {
-                display: none;
-            }
+            .fleet-grid { grid-template-columns:1fr; }
+            .fcard { border-right:none; border-bottom:1px solid var(--line); }
+            .fcard:last-child { border-bottom:none; }
+            .fcard:nth-child(3),.fcard:nth-child(4) { border-top:none; }
+            .fname { font-size:1.3rem; }
 
-            .svc:nth-child(3),
-            .svc:nth-child(5) {
-                border-right: none;
-            }
+            .oil-body { padding:24px 20px 28px; }
+            .oil-name { font-size:1.7rem; }
+            .oil-btn { padding:12px 22px; font-size:.6rem; width:100%; text-align:center; box-sizing:border-box; }
 
-            .svc:nth-child(4),
-            .svc:nth-child(5) {
-                border-bottom: 1px solid var(--line);
-            }
+            .proc-row { grid-template-columns:56px 1fr; }
+            .proc-n { font-size:1.5rem; padding:24px 0; }
+            .proc-body { padding:24px 20px; }
+            .proc-title { font-size:1.2rem; }
 
-            .svc {
-                border-right: none;
-            }
+            .qcard { padding:36px 20px; }
+            .qmark { font-size:4rem; }
 
-            #about {
-                grid-template-columns: 1fr;
-            }
+            .ct-left,.ct-right { padding:44px 16px; }
+            .ct-left p { max-width:100%; font-size:.88rem; }
+            .ct-meta { margin-top:32px; }
 
-            .ab-img {
-                min-height: 300px;
-            }
+            footer { padding:20px 16px; gap:14px; }
+            .flogo { font-size:1rem; }
+            .fcopy { font-size:.52rem; }
 
-            .ab-copy {
-                padding: 48px 20px;
-                border-left: none;
-                border-top: 1px solid var(--line);
-            }
+            .cookie-bar { padding:14px 16px; gap:16px; }
+            .cookie-btns { width:100%; }
+            .cbtn-a,.cbtn-d { flex:1; text-align:center; padding:10px 12px; }
 
-            .fleet-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .fcard:nth-child(2) {
-                border-right: none;
-            }
-
-            .q-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .qcard {
-                border-right: none;
-            }
-
-            #contact {
-                grid-template-columns: 1fr;
-            }
-
-            .ct-left,
-            .ct-right {
-                padding: 48px 20px;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 16px;
-                padding: 20px;
-                text-align: center;
-            }
-
-            .cookie-bar {
-                padding: 16px 20px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .modal-box {
-                padding: 36px 24px;
-            }
+            .modal-box { padding:28px 16px; }
+            .modal-title { font-size:clamp(26px,8vw,40px); }
         }
 
-        @media (prefers-reduced-motion: reduce) {
-            .h-video {
-                animation: none;
-                transform: none;
-            }
+        /* Small phones 380 */
+        @media(max-width:380px) {
+            .h-title { font-size:clamp(44px,13vw,64px); }
+            .sh { font-size:clamp(32px,9vw,46px); }
+            .svc:first-child .svc-name { font-size:1.45rem; }
+            .oil-name { font-size:1.5rem; }
+            .proc-row { grid-template-columns:48px 1fr; }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .h-video { animation:none; transform:none; }
         }
     </style>
 </head>
@@ -1552,10 +1244,10 @@
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-privacy')">✕ Chiudi</button>
             <div class="modal-lbl">Informativa</div>
-            <div class="modal-title">PRIVACY <br>POLICY </div>
+            <div class="modal-title">PRIVACY <br>POLICY</div>
             <div class="modal-rule"></div>
             <div class="modal-body">
-                <p>Snake Garage è titolare del trattamento dei dati personali raccolti tramite questo sito, in conformità al <strong>Regolamento UE 2016/679 (GDPR)</strong> e al D.Lgs. 196/2003. </p>
+                <p>Snake Garage è titolare del trattamento dei dati personali raccolti tramite questo sito, in conformità al <strong>Regolamento UE 2016/679 (GDPR)</strong> e al D.Lgs. 196/2003.</p>
                 <h3>DATI RACCOLTI</h3>
                 <p>Raccogliamo esclusivamente i dati forniti volontariamente tramite il modulo di contatto: nome, cognome, organizzazione, tipo di aeromobile, tipo di intervento e messaggio. Non vengono raccolti dati sensibili.</p>
                 <h3>FINALITÀ DEL TRATTAMENTO</h3>
@@ -1567,51 +1259,46 @@
                 <h3>BASE GIURIDICA</h3>
                 <p>Il trattamento si basa sul consenso dell'interessato (Art. 6.1.a GDPR) e sull'esecuzione di misure precontrattuali (Art. 6.1.b GDPR).</p>
                 <h3>CONSERVAZIONE</h3>
-                <p>I dati vengono conservati per il tempo strettamente necessario, comunque non oltre <strong>5 anni</strong> salvo obblighi di legge. </p>
+                <p>I dati vengono conservati per il tempo strettamente necessario, comunque non oltre <strong>5 anni</strong> salvo obblighi di legge.</p>
                 <h3>I TUOI DIRITTI</h3>
-                <p>Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione. Per esercitarli scrivi a: <a href="mailto:snakegarages.r.l@hotmail.com">snakegarages.r.l@hotmail.com</a>
-                </p>
+                <p>Hai diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione. Per esercitarli scrivi a: <a href="/cdn-cgi/l/email-protection#077469666c62606675666062742975296b476f68736a666e6b2964686a"><span class="__cf_email__" data-cfemail="95e6fbf4fef0f2f4e7f4f2f0e6bbe7bbf9d5fdfae1f8f4fcf9bbf6faf8">[email&#160;protected]</span></a></p>
                 <h3>TITOLARE DEL TRATTAMENTO</h3>
-                <p>Snake Garage — Via Enrico Fermi 21, 42123 Reggio nell'Emilia <br>Tel: <a href="tel:+393669907230">+39 366 990 7230</a>
-                </p>
+                <p>Snake Garage — Via Enrico Fermi 21, 42123 Reggio nell'Emilia<br>Tel: <a href="tel:+393669907230">+39 366 990 7230</a></p>
             </div>
         </div>
     </div>
+
     <!-- MODAL COOKIE -->
     <div class="modal-overlay" id="modal-cookie">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-cookie')">✕ Chiudi</button>
             <div class="modal-lbl">Informativa</div>
-            <div class="modal-title">COOKIE <br>POLICY </div>
+            <div class="modal-title">COOKIE <br>POLICY</div>
             <div class="modal-rule"></div>
             <div class="modal-body">
-                <p>Questo sito utilizza cookie in conformità alla <strong>Direttiva ePrivacy 2002/58/CE</strong> e al GDPR. </p>
+                <p>Questo sito utilizza cookie in conformità alla <strong>Direttiva ePrivacy 2002/58/CE</strong> e al GDPR.</p>
                 <h3>COOKIE TECNICI</h3>
                 <p>Necessari al funzionamento del sito. Non richiedono consenso.</p>
                 <h3>COOKIE ANALITICI</h3>
                 <p>Utilizzati in forma anonima e aggregata per capire come gli utenti navigano il sito. Attivati solo con il tuo esplicito consenso.</p>
                 <h3>COOKIE DI TERZE PARTI</h3>
-                <p>Il sito carica font da Google Fonts. Google può impostare cookie propri secondo la propria <a href="https://policies.google.com/privacy" target="_blank">privacy policy ↗</a>. </p>
+                <p>Il sito carica font da Google Fonts. Google può impostare cookie propri secondo la propria <a href="https://policies.google.com/privacy" target="_blank">privacy policy ↗</a>.</p>
                 <h3>GESTIONE E REVOCA</h3>
-                <p>Puoi revocare il consenso in qualsiasi momento tramite le impostazioni del browser o scrivendo a: <a href="mailto:snakegarages.r.l@hotmail.com">snakegarages.r.l@hotmail.com</a>
-                </p>
+                <p>Puoi revocare il consenso in qualsiasi momento tramite le impostazioni del browser o scrivendo a: <a href="/cdn-cgi/l/email-protection#f4879a959f9193958695939187da86da98b49c9b8099959d98da979b99"><span class="__cf_email__" data-cfemail="067568676d63616774676163752874286a466e69726b676f6a2865696b">[email&#160;protected]</span></a></p>
             </div>
         </div>
     </div>
+
     <!-- MODAL NOTE LEGALI -->
     <div class="modal-overlay" id="modal-legal">
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal('modal-legal')">✕ Chiudi</button>
             <div class="modal-lbl">Informativa</div>
-            <div class="modal-title">NOTE <br>LEGALI </div>
+            <div class="modal-title">NOTE <br>LEGALI</div>
             <div class="modal-rule"></div>
             <div class="modal-body">
                 <h3>TITOLARE DEL SITO</h3>
-                <p>
-                    <strong>Snake Garage</strong>
-                    <br>Via Enrico Fermi 21 — 42123 Reggio nell'Emilia (RE) <br>Email: <a href="mailto:snakegarages.r.l@hotmail.com">snakegarages.r.l@hotmail.com</a>
-                    <br>Tel: <a href="tel:+393669907230">+39 366 990 7230</a>
-                </p>
+                <p><strong>Snake Garage</strong><br>Via Enrico Fermi 21 — 42123 Reggio nell'Emilia (RE)<br>Email: <a href="/cdn-cgi/l/email-protection#b6c5d8d7ddd3d1d7c4d7d1d3c598c498daf6ded9c2dbd7dfda98d5d9db"><span class="__cf_email__" data-cfemail="e0938e818b8587819281878593ce92ce8ca0888f948d81898cce838f8d">[email&#160;protected]</span></a><br>Tel: <a href="tel:+393669907230">+39 366 990 7230</a></p>
                 <h3>PROPRIETÀ INTELLETTUALE</h3>
                 <p>Tutti i contenuti presenti su questo sito sono di proprietà di Snake Garage. È vietata qualsiasi riproduzione senza autorizzazione scritta.</p>
                 <h3>LIMITAZIONE DI RESPONSABILITÀ</h3>
@@ -1619,70 +1306,74 @@
                 <h3>CERTIFICAZIONI</h3>
                 <p>Snake Garage opera come meccanico Rotax IRMT abilitato. Le qualifiche sono verificabili su richiesta.</p>
                 <h3>LEGGE APPLICABILE</h3>
-                <p>Il sito è soggetto alla legge italiana. Foro competente esclusivo: <strong>Tribunale di Reggio Emilia</strong>. </p>
+                <p>Il sito è soggetto alla legge italiana. Foro competente esclusivo: <strong>Tribunale di Reggio Emilia</strong>.</p>
             </div>
         </div>
     </div>
+
     <!-- COOKIE BANNER -->
     <div class="cookie-bar" id="cookie-bar">
-        <div class="cookie-text"> Utilizziamo cookie tecnici per il funzionamento del sito. Leggi la <a onclick="openModal('modal-cookie')">Cookie Policy</a> e la <a onclick="openModal('modal-privacy')">Privacy Policy</a>. </div>
+        <div class="cookie-text">Utilizziamo cookie tecnici per il funzionamento del sito. Leggi la <a onclick="openModal('modal-cookie')">Cookie Policy</a> e la <a onclick="openModal('modal-privacy')">Privacy Policy</a>.</div>
         <div class="cookie-btns">
             <button class="cbtn-d" onclick="dismissCookies()">Solo necessari</button>
             <button class="cbtn-a" onclick="acceptCookies()">Accetta tutti</button>
         </div>
     </div>
+
     <!-- NAV -->
     <nav>
-        <div class="nlogo">SNAKE <em>GARAGE</em>
-        </div>
+        <div class="nlogo">SNAKE <em>GARAGE</em></div>
         <ul class="nlinks">
-            <li>
-                <a href="#svc">Servizi</a>
-            </li>
-            <li>
-                <a href="#about">Chi Siamo</a>
-            </li>
-            <li>
-                <a href="#fleet">Flotta</a>
-            </li>
-            <li>
-                <a href="#process">Processo</a>
-            </li>
-            <li>
-                <a href="#contact">Contatti</a>
-            </li>
+            <li><a href="#svc">Servizi</a></li>
+            <li><a href="#about">Chi Siamo</a></li>
+            <li><a href="#fleet">Flotta</a></li>
+            <li><a href="#process">Processo</a></li>
+            <li><a href="#contact">Contatti</a></li>
         </ul>
         <button class="ncta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Richiedi Preventivo</button>
+        <button class="n-hamburger" id="hamburger" aria-label="Menu" onclick="toggleDrawer()">MENU</button>
     </nav>
+
+    <!-- MOBILE DRAWER -->
+    <div class="n-drawer" id="n-drawer">
+        <a href="#svc"     onclick="closeDrawer()">Servizi</a>
+        <a href="#about"   onclick="closeDrawer()">Chi Siamo</a>
+        <a href="#fleet"   onclick="closeDrawer()">Flotta</a>
+        <a href="#process" onclick="closeDrawer()">Processo</a>
+        <a href="#contact" onclick="closeDrawer()">Contatti</a>
+        <a href="#contact" class="n-drawer-cta" onclick="closeDrawer()">Richiedi Preventivo</a>
+    </div>
+
     <!-- HERO -->
     <section id="hero">
-        <video class="h-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1800&q=80" aria-hidden="true">
+        <video class="h-video" autoplay muted loop playsinline preload="auto"
+            poster="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1800&q=80"
+            aria-hidden="true">
             <source src="https://www.pexels.com/download/video/5171748/" type="video/mp4">
         </video>
         <div class="h-vig"></div>
         <div class="h-redline"></div>
         <div class="h-left">
-            <div class="h-chip">
-                <strong>Meccanico</strong> Rotax IRMT &nbsp;·&nbsp; Reggio Emilia &nbsp;·&nbsp; ULM Specialist
-            </div>
-            <h1 class="h-title">ALA. <br>MOTORE. <br>
-                <span class="accent">QUOTA.</span>
+            <div class="h-chip"><strong>Meccanico</strong> Rotax IRMT &nbsp;·&nbsp; Reggio Emilia &nbsp;·&nbsp; ULM Specialist</div>
+            <h1 class="h-title">
+                <span class="h-title-line"><span class="h-title-word" id="htw1">ALA.</span></span>
+                <span class="h-title-line"><span class="h-title-word" id="htw2">MOTORE.</span></span>
+                <span class="h-title-line accent-line"><span class="h-title-word accent" id="htw3">QUOTA.</span></span>
             </h1>
             <div class="h-rule"></div>
             <p class="h-sub">Centro manutenzione per aeromobili ultraleggeri. Interventi certificati, precisione meccanica e sicurezza operativa.</p>
             <div class="h-btns">
-                <a href="#svc" class="btn-solid">I Nostri Servizi</a>
-                <a href="#about" class="btn-wire">Chi Siamo</a>
+                <a href="#svc"     class="btn-solid">I Nostri Servizi</a>
+                <a href="#about"   class="btn-wire">Chi Siamo</a>
             </div>
         </div>
         <div class="h-right">
             <div class="hstat">
-                <div class="hstat-n">Rotax <sup>✓</sup>
-                </div>
+                <div class="hstat-n">Rotax <sup>✓</sup></div>
                 <div class="hstat-l">Meccanico IRMT certificato</div>
             </div>
             <div class="hstat">
-                <div class="hstat-n">912 <sup>/</sup>915 </div>
+                <div class="hstat-n">912 <sup>/</sup>915</div>
                 <div class="hstat-l">Serie motori Rotax</div>
             </div>
             <div class="hstat">
@@ -1695,102 +1386,93 @@
             </div>
         </div>
     </section>
+
     <!-- BAND -->
     <div class="band">
         <div class="band-inner">
-            <span>MANUTENZIONE CERTIFICATA</span>
-            <span class="band-sep">///</span>
-            <span>SUPPORTO TECNICO</span>
-            <span class="band-sep">///</span>
-            <span>REVISIONI MOTORI</span>
-            <span class="band-sep">///</span>
-            <span>ASSISTENZA TECNICA</span>
-            <span class="band-sep">///</span>
-            <span>MECCANICO ROTAX IRMT</span>
-            <span class="band-sep">///</span>
-            <span>AEROMOBILI ULTRALEGGERI</span>
-            <span class="band-sep">///</span>
-            <span>REGGIO EMILIA</span>
-            <span class="band-sep">///</span>
-            <span>MANUTENZIONE CERTIFICATA</span>
-            <span class="band-sep">///</span>
-            <span>SUPPORTO TECNICO</span>
-            <span class="band-sep">///</span>
-            <span>REVISIONI MOTORI</span>
-            <span class="band-sep">///</span>
-            <span>ASSISTENZA TECNICA</span>
-            <span class="band-sep">///</span>
-            <span>MECCANICO ROTAX IRMT</span>
-            <span class="band-sep">///</span>
-            <span>AEROMOBILI ULTRALEGGERI</span>
-            <span class="band-sep">///</span>
-            <span>REGGIO EMILIA</span>
-            <span class="band-sep">///</span>
+            <span>MANUTENZIONE CERTIFICATA</span><span class="band-sep">///</span>
+            <span>SUPPORTO TECNICO</span><span class="band-sep">///</span>
+            <span>REVISIONI MOTORI</span><span class="band-sep">///</span>
+            <span>ASSISTENZA TECNICA</span><span class="band-sep">///</span>
+            <span>MECCANICO ROTAX IRMT</span><span class="band-sep">///</span>
+            <span>AEROMOBILI ULTRALEGGERI</span><span class="band-sep">///</span>
+            <span>REGGIO EMILIA</span><span class="band-sep">///</span>
+            <span>MANUTENZIONE CERTIFICATA</span><span class="band-sep">///</span>
+            <span>SUPPORTO TECNICO</span><span class="band-sep">///</span>
+            <span>REVISIONI MOTORI</span><span class="band-sep">///</span>
+            <span>ASSISTENZA TECNICA</span><span class="band-sep">///</span>
+            <span>MECCANICO ROTAX IRMT</span><span class="band-sep">///</span>
+            <span>AEROMOBILI ULTRALEGGERI</span><span class="band-sep">///</span>
+            <span>REGGIO EMILIA</span><span class="band-sep">///</span>
         </div>
     </div>
+
+    <!-- MANIFESTO -->
+    <section id="manifesto">
+        <div class="man-inner">
+            <p class="man-lead" id="man-lead">La quota si guadagna a terra</p>
+            <p class="man-text" id="man-text">Ogni volo sicuro nasce da una manutenzione precisa. Nessun compromesso sul motore. Mai.</p>
+            <p class="man-sub" id="man-sub">Snake Garage — Meccanico Rotax IRMT · Reggio Emilia · Aeromobili Ultraleggeri</p>
+        </div>
+    </section>
+
     <!-- SERVICES -->
     <section id="svc" class="s s2">
         <div class="svc-head rv">
             <div>
                 <div class="lbl">Servizi</div>
-                <h2 class="sh">COSA <br>FACCIAMO <br>
-                    <span class="dim">OGNI GIORNO</span>
-                </h2>
+                <h2 class="sh">COSA <br>FACCIAMO <br><span class="dim">OGNI GIORNO</span></h2>
             </div>
             <p class="lead">Manutenzione professionale per aeromobili ultraleggeri e motori Rotax. Ogni intervento è eseguito da un meccanico Rotax IRMT secondo standard aeronautici, con componenti certificati e procedure tecniche ufficiali.</p>
         </div>
         <div class="svc-grid">
-            <!-- Card 01: FEATURED — spans 2 rows -->
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">01</div>
-                <div class="svc-name">Manutenzione <br>Programmata ULM </div>
+                <div class="svc-name">Manutenzione <br>Programmata ULM</div>
                 <p class="svc-desc">Ispezioni periodiche e manutenzione programmata per aeromobili ultraleggeri. Controlli su motori Rotax, sistemi di alimentazione, raffreddamento e componenti di volo secondo manuali del costruttore.</p>
                 <div class="svc-ghost">01</div>
             </div>
-            <!-- Card 02 -->
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">02</div>
-                <div class="svc-name">Revisione <br>Motori Rotax </div>
+                <div class="svc-name">Revisione <br>Motori Rotax</div>
                 <p class="svc-desc">Smontaggio totale, rilievo dimensionale, sostituzione componenti life-limited. Test al banco e volo di collaudo. Turbina o pistone: zero differenze di standard.</p>
             </div>
-            <!-- Card 03 -->
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">03</div>
-                <div class="svc-name">Assistenza <br>Tecnica ULM </div>
+                <div class="svc-name">Assistenza <br>Tecnica ULM</div>
                 <p class="svc-desc">Controlli tecnici, riparazioni e regolazioni su aeromobili ultraleggeri. Verifica strutture, impianti e componenti per garantire sicurezza e affidabilità in volo.</p>
             </div>
-            <!-- Card 04 -->
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">04</div>
-                <div class="svc-name">Impianti <br>Elettrici ULM </div>
-                <p class="svc-desc">Diagnosi, riparazione e rifacimento di cablaggi, connessioni e impianti elettrici di bordo. Verifica avviamento, ricarica e continuità dei circuiti. <strong>Cambio batteria</strong> su ogni tipologia di ultraleggero. </p>
+                <div class="svc-name">Impianti <br>Elettrici ULM</div>
+                <p class="svc-desc">Diagnosi, riparazione e rifacimento di cablaggi, connessioni e impianti elettrici di bordo. Verifica avviamento, ricarica e continuità dei circuiti. <strong>Cambio batteria</strong> su ogni tipologia di ultraleggero.</p>
             </div>
-            <!-- Card 05 -->
             <div class="svc rv">
                 <div class="svc-hover-bar"></div>
                 <div class="svc-idx">05</div>
-                <div class="svc-name">Motori <br>Rotax </div>
+                <div class="svc-name">Motori <br>Rotax</div>
                 <p class="svc-desc">Manutenzione programmata su motori Rotax 912i, 912, 914, 915, 916i. Ispezioni periodiche a 25, 50, 100 e 200 ore secondo le procedure del costruttore. Interventi eseguiti da meccanico Rotax IRMT certificato.</p>
             </div>
         </div>
     </section>
+
     <!-- ABOUT -->
     <section id="about">
         <div class="ab-img rv">
-            <img src="https://www.volareulm.it/wp-content/uploads/2020/05/tecnam-p2010tdi-09-1024x622.jpg" alt="Tecnam P92 — aeromobile ultraleggero monomotore" onerror="this.src='https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80'">
+            <img src="https://www.volareulm.it/wp-content/uploads/2020/05/tecnam-p2010tdi-09-1024x622.jpg"
+                 alt="Tecnam P92 — aeromobile ultraleggero monomotore"
+                 onerror="this.src='https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=900&q=80'">
         </div>
         <div class="ab-copy rv">
             <div class="lbl">Chi Siamo</div>
-            <h2 class="sh">IN HANGAR. <br>DA <br>
-                <span class="dim">SEMPRE.</span>
-            </h2>
-            <p>Officina con sede a <strong>Fogliano - Reggio Emilia</strong>, specializzata nella <strong>manutenzione di aeromobili ultraleggeri</strong> equipaggiati con motori <strong>Rotax</strong>. </p>
-            <p>Eseguiamo manutenzioni programmate e controlli tecnici sui motori Rotax <strong>912, 912iS, 914, 915iS</strong> e <strong>916iS</strong>, nel rispetto delle procedure previste dal costruttore. L'attività comprende le ispezioni periodiche da <strong>25, 50, 100 e 200 ore</strong>, con verifica dei principali sistemi motore e controllo dei parametri operativi secondo i manuali tecnici Rotax. Gli interventi sono eseguiti da <strong>tecnico certificato Rotax IRMT</strong>. </p>
-            <p>La nostra reputazione si costruisce in hangar, intervento dopo intervento. Ogni manutenzione viene eseguita con <strong>precisione tecnica</strong> e attenzione alla sicurezza del volo. </p>
+            <h2 class="sh">IN HANGAR. <br>DA <br><span class="dim">SEMPRE.</span></h2>
+            <p>Officina con sede a <strong>Fogliano - Reggio Emilia</strong>, specializzata nella <strong>manutenzione di aeromobili ultraleggeri</strong> equipaggiati con motori <strong>Rotax</strong>.</p>
+            <p>Eseguiamo manutenzioni programmate e controlli tecnici sui motori Rotax <strong>912, 912iS, 914, 915iS</strong> e <strong>916iS</strong>, nel rispetto delle procedure previste dal costruttore. Gli interventi sono eseguiti da <strong>tecnico certificato Rotax IRMT</strong>.</p>
+            <p>La nostra reputazione si costruisce in hangar, intervento dopo intervento. Ogni manutenzione viene eseguita con <strong>precisione tecnica</strong> e attenzione alla sicurezza del volo.</p>
             <div class="certs">
                 <span class="cert">Tecnico Rotax IRMT</span>
                 <span class="cert">Aeromobili ULM</span>
@@ -1799,12 +1481,13 @@
             </div>
         </div>
     </section>
+
     <!-- FLEET -->
     <section id="fleet" class="s s2">
         <div class="fleet-head rv">
             <div>
                 <div class="lbl">Tipologie</div>
-                <h2 class="sh">AEROMOBILI <br>ULTRALEGGERI </h2>
+                <h2 class="sh">AEROMOBILI <br>ULTRALEGGERI</h2>
             </div>
             <p class="lead">Operiamo su aeromobili ultraleggeri utilizzati per addestramento, volo sportivo e attività ricreativa. Se vola con un motore Rotax, sappiamo come mantenerlo efficiente e sicuro.</p>
         </div>
@@ -1812,32 +1495,31 @@
             <div class="fcard rv" data-n="01">
                 <div class="fcat">Categoria 01</div>
                 <div class="fname">Ultraleggeri</div>
-                <div class="fmodels">Ultraleggeri per scuole volo <br>Velivoli privati </div>
+                <div class="fmodels">Ultraleggeri per scuole volo<br>Velivoli privati</div>
             </div>
             <div class="fcard rv" data-n="02">
                 <div class="fcat">Categoria 02</div>
                 <div class="fname">Motori Rotax</div>
-                <div class="fmodels">912i &nbsp;·&nbsp; 912 &nbsp;·&nbsp; 914 <br>915 &nbsp;·&nbsp; 916i </div>
+                <div class="fmodels">912i &nbsp;·&nbsp; 912 &nbsp;·&nbsp; 914<br>915 &nbsp;·&nbsp; 916i</div>
             </div>
             <div class="fcard rv" data-n="03">
                 <div class="fcat">Categoria 03</div>
                 <div class="fname">Velivoli ULM</div>
-                <div class="fmodels">Sierra Tecnam &nbsp;·&nbsp; Tecnam P92 <br>P2008 &nbsp;·&nbsp; Evektor 97 <br>Flash Confort </div>
+                <div class="fmodels">Sierra Tecnam &nbsp;·&nbsp; Tecnam P92<br>P2008 &nbsp;·&nbsp; Evektor 97<br>Flash Confort</div>
             </div>
             <div class="fcard rv" data-n="04">
                 <div class="fcat">Categoria 04</div>
                 <div class="fname">Collaborazioni</div>
-                <div class="fmodels">Scuole di volo e centri aeronautici <br>Vendita ricambi Rotax </div>
+                <div class="fmodels">Scuole di volo e centri aeronautici<br>Vendita ricambi Rotax</div>
             </div>
         </div>
     </section>
+
     <!-- OIL PRODUCTS -->
     <section id="shop" class="s">
         <div class="shop-head rv">
             <div class="lbl">Ricambi &amp; Prodotti</div>
-            <h2 class="sh">OLIO <br>ROTAX <br>
-                <span class="dim">912</span>
-            </h2>
+            <h2 class="sh">OLIO <br>ROTAX <br><span class="dim">912</span></h2>
         </div>
         <p class="lead rv" style="max-width:640px;margin-top:24px;margin-bottom:56px;">Gli oli certificati per i motori Rotax serie 912. Prodotti consigliati e testati da BRP-Powertrain, disponibili online con spedizione rapida in Italia.</p>
         <div class="oil-grid">
@@ -1879,12 +1561,13 @@
             </div>
         </div>
     </section>
+
     <!-- PROCESS -->
     <section id="process" class="s">
         <div class="proc-intro rv">
             <div>
                 <div class="lbl">Come Lavoriamo</div>
-                <h2 class="sh">IL <br>PROCESSO </h2>
+                <h2 class="sh">IL <br>PROCESSO</h2>
             </div>
             <p class="lead">Ogni intervento segue un processo chiaro: dall'accettazione del velivolo fino alla riconsegna. Analisi tecnica, manutenzione e verifiche finali per garantire sicurezza e affidabilità in volo.</p>
         </div>
@@ -1926,11 +1609,12 @@
             </div>
         </div>
     </section>
+
     <!-- QUOTES -->
     <section id="quotes" class="s">
         <div class="rv">
             <div class="lbl">Clienti</div>
-            <h2 class="sh">LO DICONO <br>LORO </h2>
+            <h2 class="sh">LO DICONO <br>LORO</h2>
         </div>
         <div class="q-grid">
             <div class="qcard rv">
@@ -1956,13 +1640,12 @@
             </div>
         </div>
     </section>
+
     <!-- CONTACT -->
     <section id="contact">
         <div class="ct-left rv">
             <div class="lbl">Contatti</div>
-            <h2 class="sh">PARLIA <br>MOCI <br>
-                <span class="dim">ORA.</span>
-            </h2>
+            <h2 class="sh">PARLIA <br>MOCI <br><span class="dim">ORA.</span></h2>
             <p>Per manutenzione, controlli tecnici o assistenza su aeromobili ultraleggeri e motori Rotax. Siamo operativi a Reggio Emilia e collaboriamo con scuole di volo e piloti privati. 24 ore su 24, 365 giorni l'anno.</p>
             <div class="ct-meta">
                 <div class="ct-row">
@@ -1971,21 +1654,15 @@
                 </div>
                 <div class="ct-row">
                     <div class="ct-lbl">WhatsApp H24</div>
-                    <div class="ct-val">
-                        <a href="https://wa.me/393669907230" target="_blank">+39 366 990 7230 — Scrivici su WhatsApp ↗</a>
-                    </div>
+                    <div class="ct-val"><a href="https://wa.me/393669907230" target="_blank">+39 366 990 7230 — Scrivici su WhatsApp ↗</a></div>
                 </div>
                 <div class="ct-row">
                     <div class="ct-lbl">Telefono</div>
-                    <div class="ct-val">
-                        <a href="tel:+393669907230">+39 366 990 7230</a>
-                    </div>
+                    <div class="ct-val"><a href="tel:+393669907230">+39 366 990 7230</a></div>
                 </div>
                 <div class="ct-row">
                     <div class="ct-lbl">Email</div>
-                    <div class="ct-val">
-                        <a href="mailto:snakegarages.r.l@hotmail.com">snakegarages.r.l@hotmail.com</a>
-                    </div>
+                    <div class="ct-val"><a href="/cdn-cgi/l/email-protection#10637e717b75777162717775633e623e7c50787f647d71797c3e737f7d"><span class="__cf_email__" data-cfemail="6f1c010e040a080e1d0e080a1c411d41032f07001b020e0603410c0002">[email&#160;protected]</span></a></div>
                 </div>
             </div>
         </div>
@@ -2003,27 +1680,116 @@
             <button class="fsub" id="fsub">Invia Richiesta</button>
         </div>
     </section>
+
     <!-- FOOTER -->
     <footer>
-        <div class="flogo">SNAKE <em>GARAGE</em>
-        </div>
-        <div class="fcopy">© 2026 Snake Garage &nbsp;·&nbsp; Reggio nell'Emilia <br>Meccanico Rotax IRMT &nbsp;///&nbsp; Aeromobili ULM </div>
+        <div class="flogo">SNAKE <em>GARAGE</em></div>
+        <div class="fcopy">© 2026 Snake Garage &nbsp;·&nbsp; Reggio nell'Emilia<br>Meccanico Rotax IRMT &nbsp;///&nbsp; Aeromobili ULM</div>
         <nav class="fnav">
             <a onclick="openModal('modal-privacy')">Privacy</a>
             <a onclick="openModal('modal-cookie')">Cookie</a>
             <a onclick="openModal('modal-legal')">Note Legali</a>
         </nav>
     </footer>
+
     <script>
+        /* ─── SMOOTH SCROLL ─────────────────────────── */
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
                 const t = document.querySelector(a.getAttribute('href'));
-                if (t) t.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (t) { t.scrollIntoView({behavior:'smooth'}); closeDrawer(); }
             });
         });
+
+        /* ─── HERO TITLE: LINE-BY-LINE SLIDE-UP ─────── */
+        window.addEventListener('DOMContentLoaded', () => {
+            ['htw1','htw2','htw3'].forEach((id, i) => {
+                const el = document.getElementById(id);
+                if (el) setTimeout(() => el.classList.add('show'), 280 + i * 190);
+            });
+        });
+
+        /* ─── SECTION HEADINGS: LINE-BY-LINE REVEAL ─── */
+        /* Each .sh: wrap every <br>-separated line and span.dim in a .wl clip container */
+        function prepHeadings() {
+            document.querySelectorAll('.sh').forEach(sh => {
+                if (sh.dataset.split) return;
+                sh.dataset.split = '1';
+
+                // Build lines array from childNodes
+                const lines = [];
+                let cur = '';
+                sh.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        cur += node.textContent;
+                    } else if (node.nodeName === 'BR') {
+                        if (cur.trim()) { lines.push({type:'text', val: cur.trim()}); cur = ''; }
+                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                        if (cur.trim()) { lines.push({type:'text', val: cur.trim()}); cur = ''; }
+                        lines.push({type:'elem', val: node.outerHTML});
+                    }
+                });
+                if (cur.trim()) lines.push({type:'text', val: cur.trim()});
+
+                sh.innerHTML = lines.map(l =>
+                    `<span class="wl"><span>${l.val}</span></span>`
+                ).join('');
+            });
+        }
+        prepHeadings();
+
+        const shObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                // stagger each .wl line
+                e.target.querySelectorAll('.wl > span').forEach((s, i) => {
+                    setTimeout(() => { s.style.transform = 'translateY(0)'; }, i * 110);
+                });
+                shObs.unobserve(e.target);
+            });
+        }, {threshold: 0.15});
+        document.querySelectorAll('.sh').forEach(sh => shObs.observe(sh));
+
+        /* ─── LABELS SLIDE-IN ────────────────────────── */
+        document.querySelectorAll('.lbl').forEach(l => l.classList.add('lbl-anim'));
+        const lblObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('lbl-in');
+                lblObs.unobserve(e.target);
+            });
+        }, {threshold: 0.4});
+        document.querySelectorAll('.lbl').forEach(l => lblObs.observe(l));
+
+        /* ─── MANIFESTO: WORD-BY-WORD ────────────────── */
+        function splitWords(el) {
+            const words = el.innerText.trim().split(/\s+/);
+            el.innerHTML = words.map((w, i) => {
+                const red = i === words.length - 1 ? ' red' : '';
+                return `<span class="word${red}"><span>${w}</span></span>`;
+            }).join(' ');
+        }
+        const manText = document.getElementById('man-text');
+        if (manText) splitWords(manText);
+
+        const manObs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                const lead = document.getElementById('man-lead');
+                const sub  = document.getElementById('man-sub');
+                if (lead) setTimeout(() => lead.classList.add('show'), 80);
+                document.querySelectorAll('#man-text .word').forEach((w, i) => {
+                    setTimeout(() => w.classList.add('show'), 180 + i * 60);
+                });
+                if (sub) sub.classList.add('show');
+                manObs.unobserve(e.target);
+            });
+        }, {threshold: 0.3});
+        const manSec = document.getElementById('manifesto');
+        if (manSec) manObs.observe(manSec);
+
+        /* ─── GENERIC REVEAL (.rv) ───────────────────── */
         const obs = new IntersectionObserver(entries => {
             entries.forEach((e, i) => {
                 if (e.isIntersecting) {
@@ -2031,13 +1797,11 @@
                     obs.unobserve(e.target);
                 }
             });
-        }, {
-            threshold: 0.07
-        });
+        }, {threshold: 0.07});
         document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-        setTimeout(() => {
-            document.querySelectorAll('.rv:not(.in)').forEach(el => el.classList.add('in'));
-        }, 1500);
+        setTimeout(() => document.querySelectorAll('.rv:not(.in)').forEach(el => el.classList.add('in')), 1500);
+
+        /* ─── FORM SUBMIT ────────────────────────────── */
         document.getElementById('fsub').addEventListener('click', function() {
             this.textContent = 'RICHIESTA INVIATA ✓';
             this.style.background = '#1a5c30';
@@ -2045,32 +1809,37 @@
             this.disabled = true;
         });
 
-        function openModal(id) {
-            document.getElementById(id).classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('open');
-            document.body.style.overflow = '';
-        }
+        /* ─── MODALS ─────────────────────────────────── */
+        function openModal(id)  { document.getElementById(id).classList.add('open');    document.body.style.overflow = 'hidden'; }
+        function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
         document.querySelectorAll('.modal-overlay').forEach(o => {
-            o.addEventListener('click', function(e) {
-                if (e.target === this) closeModal(this.id);
-            });
+            o.addEventListener('click', function(e) { if (e.target === this) closeModal(this.id); });
         });
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
         });
 
-        function acceptCookies() {
-            document.getElementById('cookie-bar').classList.add('hidden');
-        }
+        /* ─── COOKIES ────────────────────────────────── */
+        function acceptCookies()  { document.getElementById('cookie-bar').classList.add('hidden'); }
+        function dismissCookies() { document.getElementById('cookie-bar').classList.add('hidden'); }
 
-        function dismissCookies() {
-            document.getElementById('cookie-bar').classList.add('hidden');
+        /* ─── MOBILE DRAWER ──────────────────────────── */
+        let drawerOpen = false;
+        function toggleDrawer() {
+            drawerOpen = !drawerOpen;
+            const d = document.getElementById('n-drawer');
+            const b = document.getElementById('hamburger');
+            d.classList.toggle('open', drawerOpen);
+            b.textContent = drawerOpen ? 'CHIUDI' : 'MENU';
         }
+        function closeDrawer() {
+            drawerOpen = false;
+            document.getElementById('n-drawer').classList.remove('open');
+            document.getElementById('hamburger').textContent = 'MENU';
+        }
+        document.addEventListener('click', e => {
+            if (drawerOpen && !e.target.closest('#n-drawer') && !e.target.closest('#hamburger')) closeDrawer();
+        });
     </script>
 </body>
-
 </html>
